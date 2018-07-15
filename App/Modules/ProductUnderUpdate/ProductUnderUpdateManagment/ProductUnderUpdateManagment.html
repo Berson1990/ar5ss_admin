@@ -1,0 +1,68 @@
+<div class="panel" dir="{{'dir'| translate}}">
+    <h3 class="panel-heading"> {{'ProductUnderUpdate'| translate}}</h3>
+
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table datatable="ng" data-dt-options="dtOptions" data-dt-column-defs="dtColumnDefs" class="table table-bordered table-striped hover">
+                        <thead>
+                        <tr>
+
+                            <td>
+                                {{'Edit' | translate}}
+                            </td>
+
+                            <!--<td>{{'SuplierName'|translate}}</td>-->
+                            <td>{{'ProductIamge'|translate}}</td>
+                            <td>{{'AddProperty'|translate}}</td>
+                            <th>{{'ProductName'|translate}}</th>
+                            <th>{{'ProductNameE'|translate}}</th>
+                            <th>{{'BrandName'|translate}}</th>
+                            <th>{{'BrandNameE'|translate}}</th>
+                            <th>{{'CategoryName'|translate}}</th>
+                            <th>{{'CategoryNameE'|translate}}</th>
+                            <th>{{'Size'|translate}}</th>
+                            <th>{{'ProductPrice'|translate}}</th>
+                            <th>{{'ProductPriceDesc'|translate}}</th>
+                            <th>{{'Rate'|translate}}</th>
+                            <th>{{'BarCode'|translate}}</th>
+                            <th>{{'SerialNumber'|translate}}</th>
+                            <td>{{'Delete'|translate}}</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr data-ng-repeat="ProductList in Product">
+                            <td>
+                                <button class="btn btn-sm btn-warning"
+                                        data-ng-click="ProductAddEdit(ProductList,true)">{{'Edit' | translate}}
+                                </button>
+                            </td>
+                            <td>
+                                <button class="btn btn-sm btn-block btn-primary"
+                                        data-ng-click="ProductImage(ProductList)">{{'ProductIamge' | translate}}
+                                </button>
+                            </td>
+                            <td><button class="btn btn-sm btn-success" data-ng-click="AssginProperty(ProductList)">{{'AddProperty'|translate}}</button></td>
+                            <!--<td>{{ProductList.Name}}</td>-->
+                            <td>{{ProductList.product_name}}</td>
+                            <td>{{ProductList.product_nameen}}</td>
+                            <td>{{ProductList.BarndName}}</td>
+                            <td>{{ProductList.BarndNameE}}</td>
+                            <td>{{ProductList.categroy_name}}</td>
+                            <td>{{ProductList.categroy_nameen}}</td>
+                            <td>{{ProductList.size}}</td>
+                            <td>{{ProductList.ProductPrice}}</td>
+                            <td>{{ProductList.ProductPriceDesc}}</td>
+                            <td>{{ProductList.Rate}}</td>
+                            <td>{{ProductList.BarCode}}</td>
+                            <td>{{ProductList.SeialNumbers}}</td>
+                            <td><button class="btn btn-sm btn-danger" data-ng-click="Delete(ProductList)">{{'Delete'|translate}}</button></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

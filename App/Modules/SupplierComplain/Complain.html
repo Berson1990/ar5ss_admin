@@ -1,0 +1,59 @@
+<style>
+    .rowGray{
+        background:   #F5F5F5;
+    }
+</style>
+<div class="container-fluid" dir="{{'dir'| translate}}">
+    <div class="panel panel-default clearfix">
+        <ul class="nav nav-tabs">
+            <li class="active" data-ng-click="getMesageSupplier(0)"><a data-ng-sref="javascript:;" >{{'ResentCompisn'|translate}}</a></li>
+            <li data-ng-click="getMesageSupplier(1)"><a data-ng-sref="javascript:;" >{{'HideCompisn'|translate}}</a></li>
+        </ul>
+        <h3 class="panel-heading"> {{'SupplierComplain'| translate}}</h3>
+        <br>
+        <div class="table-responsive">
+            <table datatable="ng" data-dt-options="dtOptions" data-dt-column-defs="dtColumnDefs"
+                   class="table table-bordered  hover">
+                <thead>
+                <tr>
+                    <th>{{'MoveUp'|translate}}</th>
+                    <td style="display: none"></td>
+                    <th>{{'ComplainReview' | translate}}</th>
+                    <th>{{'Tilte'|translate}}</th>
+                    <th>{{'Description'|translate}}</th>
+                    <th>{{'SupplierName'|translate}}</th>
+                    <th>{{'Email'|translate}}</th>
+                    <th>{{'Mobile'|translate}}</th>
+                    <th>{{'HideComplain'|translate}}</th>
+
+
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr data-ng-repeat="Complinlist in complinlist"  ng-class="{'rowGray':Complinlist.IsRead === 1}">
+                    <td data-ng-if="Complinlist.Paind === 1">
+                        <button data-ng-class="Complinlist.Paind === 1 ?'btn btn-sm btn-success' :  'btn btn-sm btn-warning'  "  class="" data-ng-click="removepainit(Complinlist)">{{'RemovePain'|translate}}</button>
+                    </td>
+                    <td data-ng-if="Complinlist.Paind === 0">
+                        <button data-ng-class="Complinlist.Paind === 1 ?'btn btn-sm btn-success' :  'btn btn-sm btn-warning'  "  class="" data-ng-click="painit(Complinlist)">{{'MoveUp'|translate}}</button>
+                    </td>
+                    <td style="display: none">{{Complinlist.Sort}}</td>
+                    <td>
+                        <button class="btn btn-sm btn-primary" data-ng-click="ComplainReview(Complinlist)">
+                            {{'ComplainReview' | translate}}
+                        </button>
+                    </td>
+                    <td>{{Complinlist.Tittle}}</td>
+                    <td>{{Complinlist.Descriotion}}</td>
+                    <td>{{Complinlist.Name}}</td>
+                    <td>{{Complinlist.Email}}</td>
+                    <td>{{Complinlist.Mobile}}</td>
+                    <td ><button data-ng-class="{'hide':Complinlist.Hide === 1}" class="btn btn-danger" data-ng-click="HideComplainUsers(Complinlist)">{{'HideComplain'|translate}}</button></td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

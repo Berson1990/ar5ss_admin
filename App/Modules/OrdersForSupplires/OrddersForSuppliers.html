@@ -1,0 +1,103 @@
+<!--<div class="panel panel-body" dir="{{'dir'|translate}}">-->
+    <!--<div class="row">-->
+        <!--<div class="form-gorup">-->
+            <!--<div class="col-md-12">-->
+                <!--<label>{{'Store' | translate}}</label>-->
+                <!--<ui-select class="form-control selectAlgin"-->
+                           <!--ng-model="Store.SellerId" theme="select2"-->
+                           <!--style="width: 100%">-->
+                    <!--<ui-select-match placeholder="{{'Store' | translate}}">-->
+                        <!--{{$select.selected.name}}-->
+                    <!--</ui-select-match>-->
+                    <!--<ui-select-choices-->
+                            <!--repeat="stors.SellerId as stors in Store | filter: $select.search">-->
+                        <!--<div ng-bind-html="stors.name | highlight: $select.search"></div>-->
+                    <!--</ui-select-choices>-->
+                <!--</ui-select>-->
+<!--{{Store.SellerID}}-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<br>-->
+    <!--<div class="row">-->
+        <!--<div class="col-md-12">-->
+            <!--<md-radio-group ng-model="OrderState">-->
+                <!--<md-radio-button value="1" class="md-primary">{{'Pending'|translate}}</md-radio-button>-->
+                <!--<md-radio-button value="2"> {{'Closed'|translate}} </md-radio-button>-->
+            <!--</md-radio-group>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<button class="btn btn-success" data-ng-click="data()">{{'Search'|translate}}</button>-->
+<!--</div>-->
+<div class="panel panel-body" dir="{{'dir' | translate}}">
+    <h3 class="panel-heading">{{'OrdersForSupplires'|translate}}</h3>
+    <div class="row">
+        <div class="row">
+            <div class="col-md-6">
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>{{'NumberOfOperation'|translate}}</th>
+                        <th>{{'NumberOFProduct'|translate}}</th>
+                        <th>{{'Total'|translate}}</th>
+
+                    </tr>
+                    <tr>
+                        <td>{{NumberOfOperation}}</td>
+                        <td>{{NumberOfProduct}}</td>
+                        <td>{{Total2}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table datatable="ng" data-dt-options="dtOptions" data-dt-column-defs="dtColumnDefs"
+                       class="table table-bordered table-striped hover">
+                    <thead>
+                    <tr>
+                        <th>{{'OrderID' | translate}}</th>
+                        <th>{{'OrderDate' | translate}}</th>
+                        <th>{{'Name'|translate}}</th>
+                        <th>{{'Mobile'| translate}}</th>
+                        <th>{{'ClintLocation'| translate}}</th>
+                        <th>{{'ProductName'|translate}}</th>
+                        <th>{{'BrandName'|translate}}</th>
+                        <th>{{'CategoryName'|translate}}</th>
+                        <th>{{'Size'|translate}}</th>
+                        <th>{{'ProductPrice'|translate}}</th>
+                        <th>{{'ProductPriceDesc'|translate}}</th>
+                        <th>{{'ProductQTYSupplier'|translate}}</th>
+                        <th>{{'Total'|translate}}</th>
+                        <th>{{'BarCode'|translate}}</th>
+                        <th>{{'SerialNumber'|translate}}</th>
+                        <th>{{'CloseOrder'|translate}}</th>
+                        <th>{{'Refused'|translate}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr data-ng-repeat="orderList in OrderList">
+                        <td>{{orderList.OrderID}}</td>
+                        <td>{{orderList.created_at}}</td>
+                        <td>{{orderList.Name}}</td>
+                        <td>{{orderList.Mobile}}</td>
+                        <td><button class="btn brn-sm btn-primary" data-ng-click="DisplayLocation(orderList)">{{'ClintLocation'| translate}}</button></td>
+                        <td>{{orderList.product_name}}</td>
+                        <td>{{orderList.BarndName}}</td>
+                        <td>{{orderList.categroy_name}}</td>
+                        <td>{{orderList.size}}</td>
+                        <td>{{orderList.ProductPrice}}</td>
+                        <td ng-init="$parent.Total2 = $parent.Total2 + (orderList.ProductPriceDesc * orderList.ItemsQTY)">{{orderList.ProductPriceDesc}}</td>
+                        <td>{{orderList.ItemsQTY}}</td>
+                        <td>{{orderList.ProductPriceDesc * orderList.ItemsQTY}}</td>
+                        <td>{{orderList.BarCode}}</td>
+                        <td>{{orderList.SeialNumbers}}</td>
+                        <td ><button class="btn btn-primary" ng-click="CloseOrder(orderList)">{{'CloseOrder'|translate}}</button></td>
+                        <td> <button class="btn btn-danger" ng-click="CancelOrder(orderList)">{{'Refused'|translate}}</td>
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

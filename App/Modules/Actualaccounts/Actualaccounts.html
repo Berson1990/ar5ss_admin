@@ -1,0 +1,93 @@
+<div class="panel" dir="{{'dir'| translate}}">
+    <h3 class="panel-heading"> {{'Actualaccounts'| translate}}</h3>
+    <div class="panel-body">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label> {{'FromDate' |translate}}</label>
+                    <md-datepicker data-ng-model="SalesReport.FromDate" md-placeholder="Enter date"></md-datepicker>
+                </div>
+            </div>
+            <br>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label> {{'ToDate' |translate}}</label>
+                    <md-datepicker data-ng-model="SalesReport.ToDate" md-placeholder="Enter date"></md-datepicker>
+                </div>
+            </div>
+            <br>
+
+
+            <div class="col-md-12">
+                <button class="btn btn-success col-md-12" data-ng-click="search()"><i class="fa fa-save"></i>{{'Search'
+                    |
+                    translate}}&nbsp;&nbsp;
+                </button>
+            </div>
+        </div>
+    </div>
+    <br> <br>
+</div>
+<div class="panel" dir="{{'dir'| translate}}">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-6">
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>{{'NumberOfOperation'|translate}}</th>
+                        <th>{{'NumberOFProduct'|translate}}</th>
+                        <th>{{'Total'|translate}}</th>
+
+                    </tr>
+                    <tr>
+                        <td>{{NumberOfOperation}}</td>
+                        <td>{{NumberOfProduct}}</td>
+                        <td>{{Total2}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table datatable="ng" data-dt-options="dtOptions" data-dt-column-defs="dtColumnDefs"
+                           class="table table-bordered table-striped hover">
+                        <thead>
+                        <tr>
+                            <th>{{'Ar5ssTotal'|translate}}</th>
+                            <th>{{'Mandob'|translate}}</th>
+                            <th>{{'FinalTotal'|translate}}</th>
+<th class="hide"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr data-ng-repeat="serachResult in SerachResult">
+                            <!--<td>{{serachResult.CashPayment + serachResult.CrditPayment}}</td>-->
+                            <td data-ng-if="serachResult.Percentage === '0.0'">{{ (serachResult.CashPayment *
+                                Ar5sspresntage) -- (serachResult.CrditPayment * BankPresnt) }}
+                            </td>
+                            <td data-ng-if="serachResult.Percentage === '0.0'">{{((serachResult.CashPayment *
+                                Ar5sspresntage) -- (serachResult.CrditPayment * BankPresnt)) * Delegate / 100 }}
+                            </td>
+                            <td data-ng-if="serachResult.Percentage !== '0.0'">{{ (serachResult.CashPayment *
+                                serachResult.Percentage) / 100 -- (serachResult.CrditPayment * BankPresnt) }}
+                            </td>
+                            <td data-ng-if="serachResult.Percentage !== '0.0'">{{ ((serachResult.CashPayment *
+                                serachResult.Percentage) / 100 -- (serachResult.CrditPayment * BankPresnt)) * Delegate
+                                /100}}
+                            </td>
+                            </td>
+                            <td data-ng-if="serachResult.Percentage === '0.0'">{{ (serachResult.CashPayment * Ar5sspresntage) -- (serachResult.CrditPayment * BankPresnt) - (((serachResult.CashPayment * Ar5sspresntage) -- (serachResult.CrditPayment * BankPresnt)) * Delegate / 100 ) }}</td>
+                            <td data-ng-if="serachResult.Percentage !== '0.0'">{{ (serachResult.CashPayment * serachResult.Percentage) / 100 -- (serachResult.CrditPayment * BankPresnt) - (((serachResult.CashPayment * serachResult.Percentage) / 100 --(serachResult.CrditPayment * BankPresnt)) * Delegate /100) }}
+                            </td>
+
+                            <td class="hide" ng-init="$parent.Total = $parent.Total +(serachResult.ProductPriceDesc)">{{serachResult.ProductPriceDesc}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

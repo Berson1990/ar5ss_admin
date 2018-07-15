@@ -1,0 +1,157 @@
+﻿ul {
+    list-style-type: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:focus {
+	outline-style: none;
+}
+
+.form-control {
+	-ms-border-radius: 0;
+	border-radius: 0;
+	border: 1px solid #e5e5e5;
+	-webkit-box-shadow: none!important;
+	-ms-box-shadow: none!important;
+	box-shadow: none!important;
+}
+
+.dt-toolbar {
+	padding: 10px 0 10px 0;
+    float: right;
+}
+
+.panel, .panel .panel-heading {
+	-ms-border-radius: 0;
+	border-radius: 0;
+}
+
+.panel .table {
+	border-right: none;
+	border-left: none;
+}
+
+/*------------------------spinner--------------------------*/
+/*---------------------------------------------------------*/
+.block-ui-container {
+	position: fixed;
+}
+
+.spinner-overlay {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(100,100,100,.3);
+}
+
+.spinner {
+	position: fixed;
+	z-index: 10051;
+	width: 40px;
+	height: 40px;
+	top: 40%;
+	left: 50%;
+	margin-left: -25px;
+	text-align: left;
+	-webkit-animation: sk-rotate 2.0s infinite linear;
+	animation: sk-rotate 2.0s infinite linear;
+}
+
+.dot1, .dot2 {
+	width: 60%;
+	height: 60%;
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	background-color: #000;
+	border-radius: 100%;
+	-webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+	animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.dot2 {
+	top: auto;
+	bottom: 0;
+	-webkit-animation-delay: -1.0s;
+	animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-rotate {
+	100% {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+@keyframes sk-rotate {
+	100% {
+		transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+@-webkit-keyframes sk-bounce {
+	0%, 100% {
+		-webkit-transform: scale(0.0);
+	}
+
+	50% {
+		-webkit-transform: scale(1.0);
+	}
+}
+
+@keyframes sk-bounce {
+	0%, 100% {
+		transform: scale(0.0);
+		-webkit-transform: scale(0.0);
+	}
+
+	50% {
+		transform: scale(1.0);
+		-webkit-transform: scale(1.0);
+	}
+}
+/*------------------------spinner--------------------------*/
+/*---------------------------------------------------------*/
+
+.alertify-logs.top {
+    top: 45px;
+}
+
+.dataTable thead th {
+	border-bottom: none !important;
+}
+
+.languages-bar {
+	padding: 0;
+}
+
+.languages-bar li {
+	display: inline;
+	list-style: none;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	text-indent: -9999px;
+}
+
+.languages-bar li > a {	
+	width: 28px;
+	height: 28px;
+	display: block;
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	-o-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+.languages-bar li:hover > a {
+	background-position: 0 -38px;
+}
+
+.collapse-header {
+	display: inline-block;
+}

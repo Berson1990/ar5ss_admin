@@ -1,0 +1,17 @@
+<form name="frm" class="form-horizontal" novalidate dir="{{'dir'|translate }}">
+    <div class="modal-header">
+        <button type="button" class="close" data-ng-click="Cancel()" aria-hidden="true">×</button>
+        <h3 class="modal-title">
+            {{'ComplainReview' | translate}}
+        </h3>
+    </div>
+
+    <div class="modal-body">
+        <h4>{{ComplinText.Tittle}}</h4>
+        <p>{{ComplinText.Descriotion}}</p>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn" data-ng-click="Cancel()"><i class="fa fa-close"></i>{{'Cancel'| translate}}&nbsp;</button>
+    </div>
+</form>

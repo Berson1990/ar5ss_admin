@@ -1,0 +1,90 @@
+<div class="panel" dir="{{'dir'| translate}}">
+    <h3 class="panel-heading">{{'Claims'|translate}}</h3>
+    <div class="panel-body">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label> {{'FromDate' |translate}}</label>
+                    <md-datepicker data-ng-model="FromDate" md-placeholder="Enter date"></md-datepicker>
+                </div>
+            </div>
+            <br>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label> {{'ToDate' |translate}}</label>
+                    <md-datepicker data-ng-model="ToDate" md-placeholder="Enter date"></md-datepicker>
+                </div>
+            </div>
+            <br>
+
+            <br>
+            <div class="col-md-12">
+                <button class="btn btn-success col-md-12" data-ng-click="search()"><i class="fa fa-save"></i>{{'Search'
+                    |
+                    translate}}&nbsp;&nbsp;
+                </button>
+            </div>
+    </div>
+    <br> <br>
+</div>
+<div class="panel" dir="{{'dir'| translate}}">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-6">
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>{{'NumberOfOperation'|translate}}</th>
+                        <th>{{'NumberOFProduct'|translate}}</th>
+                        <th>{{'Total'|translate}}</th>
+
+                    </tr>
+                    <tr>
+                        <td>{{NumberOfOperation}}</td>
+                        <td>{{NumberOfProduct}}</td>
+                        <td>{{Total}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table datatable="ng" data-dt-options="dtOptions" data-dt-column-defs="dtColumnDefs"
+                           class="table table-bordered table-striped hover">
+                        <thead>
+                        <tr>
+                            <th>{{'Monthes'|translate}}</th>
+                            <th>{{'TotalCshPayment'|translate}}</th>
+                            <th>{{'TotalCrditPayment'|translate}}</th>
+                            <th>{{'Total'|translate}}</th>
+                            <th>{{'TotalForAr5ss'|translate}}</th>
+                            <th>{{'Claim'|translate}}</th>
+                            <th>{{'OrderFinanceState'|translate}}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr data-ng-repeat="serachResult in SerachResult">
+                            <td>{{serachResult.Monthes}}</td>
+                            <td>{{serachResult.CashPayment}}</td>
+                            <td>{{serachResult.CrditPayment}}</td>
+                            <!--<td>{{serachResult.CashPayment + serachResult.CrditPayment}}</td>-->
+                            <!--total-->
+                            <td >{{serachResult.CashPayment -- serachResult.CrditPayment}}</td>
+                            <!--total for ar5ss-->
+                            <td  data-ng-if="serachResult.Percentage === '0.0'" > {{(serachResult.CashPayment -- serachResult.CrditPayment) *( Ar5sspresntage /100 )}}</td>
+                            <td  data-ng-if="serachResult.Percentage !== '0.0'">{{(serachResult.CashPayment -- serachResult.CrditPayment) * (serachResult.Percentage /100) }}</td>
+                            <!-- Clims-->
+                            <td  data-ng-if="serachResult.Percentage === '0.0'">{{((serachResult.CashPayment -- serachResult.CrditPayment) * (Ar5sspresntage/100)) - serachResult.CrditPayment }}</td>
+                            <td data-ng-if="serachResult.Percentage !== '0.0'">{{((serachResult.CashPayment -- serachResult.CrditPayment) * (serachResult.Percentage/100)) - serachResult.CrditPayment }}</td>
+                            <!--Order Finance State-->
+                            <td data-ng-if="serachResult.FinanceState === 0">{{'Open'| translate}}</td>
+                            <td data-ng-if="serachResult.FinanceState === 1">{{'ClosedCase'| translate}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

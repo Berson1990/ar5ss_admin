@@ -1,0 +1,220 @@
+<div class="panel" dir="{{'dir'| translate}}">
+
+    <h3 class="panel-heading"> {{'DashBord'| translate}}</h3>
+
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>{{'SalesONMonthes'|translate}}</h2>
+                <br>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label> {{'FromDate' |translate}}</label>
+                        <md-datepicker data-ng-model="FromDate" md-placeholder="Enter date"></md-datepicker>
+                    </div>
+                </div>
+
+                <br>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label> {{'ToDate' |translate}}</label>
+                        <md-datepicker data-ng-model="ToDate" md-placeholder="Enter date"></md-datepicker>
+                    </div>
+                </div>
+                <br>
+                <button class="btn btn-success btn-md" data-ng-click="SalesFilter()">{{'Search'|translate}}</button>
+            </div>
+
+            <div class="col-md-6">
+                <canvas id="bar" class="chart chart-bar"
+                        chart-data="data" chart-labels="labels"> chart-series="series"
+                </canvas>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="panel" dir="{{'dir'| translate}}">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>{{'SalesONDay'|translate}}</h2>
+                <br>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label> {{'FromDate' |translate}}</label>
+                        <md-datepicker data-ng-model="FromDate" md-placeholder="Enter date"></md-datepicker>
+                    </div>
+                </div>
+
+                <br>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label> {{'ToDate' |translate}}</label>
+                        <md-datepicker data-ng-model="ToDate" md-placeholder="Enter date"></md-datepicker>
+                    </div>
+                </div>
+                <br>
+                <button class="btn btn-success btn-md" data-ng-click="SalesByDayFilter()">{{'Search'|translate}}</button>
+            </div>
+
+            <div class="col-md-6">
+                <canvas id="barday" class="chart chart-bar"
+                        chart-data="dataSalesByDay" chart-labels="labelsByDAy"> chart-series="series"
+                </canvas>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="panel" dir="{{'dir'| translate}}">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>{{'BrandSales'|translate}}</h2>
+                <br>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label> {{'FromDate' |translate}}</label>
+                        <md-datepicker data-ng-model="FromDate" md-placeholder="Enter date"></md-datepicker>
+                    </div>
+                </div>
+
+                <br>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label> {{'ToDate' |translate}}</label>
+                        <md-datepicker data-ng-model="ToDate" md-placeholder="Enter date"></md-datepicker>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>{{'BrandName' | translate}}</label>
+                        <ui-select class="form-control selectAlgin"
+                                   ng-model="Brand.BrandID" theme="select2"
+                                   style="width: 100%">
+                            <ui-select-match placeholder="{{'BrandName' | translate}}">
+                                {{$select.selected.BarndName}}
+                            </ui-select-match>
+                            <ui-select-choices
+                                    repeat="brands.BrandID as brands in Brand | filter: $select.search">
+                                <div ng-bind-html="brands.BarndName | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                </div>
+                <br>
+                <div class="col-md-12">
+                    <button class="btn btn-success btn-md" data-ng-click="BrandFilter()">{{'Search'|translate}}</button>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <canvas id="doughnut" class="chart chart-doughnut"
+                        chart-data="dataBrand" chart-labels="labelsBrand">
+                </canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel" dir="{{'dir'| translate}}">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>{{'CategorySales'|translate}}</h2>
+                <br>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label> {{'FromDate' |translate}}</label>
+                        <md-datepicker data-ng-model="FromDate" md-placeholder="Enter date"></md-datepicker>
+                    </div>
+                </div>
+
+                <br>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label> {{'ToDate' |translate}}</label>
+                        <md-datepicker data-ng-model="ToDate" md-placeholder="Enter date"></md-datepicker>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>{{'CategoryName' | translate}}</label>
+                        <ui-select class="form-control selectAlgin"
+                                   ng-model="Category.CategoryID" theme="select2"
+                                   style="width: 100%">
+                            <ui-select-match placeholder="{{'AddCategory' | translate}}">
+                                {{$select.selected.categroy_name}}
+                            </ui-select-match>
+                            <ui-select-choices
+                                    repeat="categorys.CategoryID as categorys in Category | filter: $select.search">
+                                <div ng-bind-html="categorys.categroy_name | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                </div>
+                <br>
+                <div class="col-md-12">
+                    <button class="btn btn-success btn-md" data-ng-click="CategoryFilter()">{{'Search'|translate}}</button>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <canvas id="doughnut2" class="chart chart-doughnut"
+                        chart-data="dataCategory" chart-labels="labelsCategory">
+                </canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel" dir="{{'dir'| translate}}">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>{{'PrdouctSales'|translate}}</h2>
+                <br>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label> {{'FromDate' |translate}}</label>
+                        <md-datepicker data-ng-model="FromDate" md-placeholder="Enter date"></md-datepicker>
+                    </div>
+                </div>
+
+                <br>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label> {{'ToDate' |translate}}</label>
+                        <md-datepicker data-ng-model="ToDate" md-placeholder="Enter date"></md-datepicker>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>{{'Product' | translate}}</label>
+                        <ui-select class="form-control selectAlgin"
+                                   data-ng-model="Product.ProductID" theme="select2"
+                                   style="width: 100%">
+                            <ui-select-match placeholder="{{'Product' | translate}}">
+                                {{$select.selected.product_name}}
+                            </ui-select-match>
+                            <ui-select-choices
+                                    repeat="products.ProductID as products in Product | filter: $select.search">
+                                <div ng-bind-html="products.product_name | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                </div>
+                <br>
+                <div class="col-md-12">
+                    <button class="btn btn-success btn-md" data-ng-click="ProductFilter()">{{'Search'|translate}}</button>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <canvas id="doughnut3" class="chart chart-doughnut"
+                        chart-data="dataPrdouct" chart-labels="labelsProduct">
+                </canvas>
+            </div>
+        </div>
+    </div>
+</div>

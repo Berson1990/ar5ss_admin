@@ -1,0 +1,12 @@
+﻿body {
+	direction: rtl;
+}
+
+.languages-bar,
+.languages-bar li {
+	float: right !important;
+}
+
+.collapse-header {
+	margin-right: 10px;
+}

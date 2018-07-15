@@ -1,0 +1,191 @@
+<div class="panel" dir="{{'dir'| translate}}">
+    <h3 class="panel-heading"> {{'LateOrder'| translate}}</h3>
+
+    <div class="panel-body">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label> {{'FromDate' |translate}}</label>
+                    <md-datepicker data-ng-model="SalesReport.FromDate" md-placeholder="Enter date"></md-datepicker>
+                </div>
+            </div>
+            <br>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label> {{'ToDate' |translate}}</label>
+                    <md-datepicker data-ng-model="SalesReport.ToDate" md-placeholder="Enter date"></md-datepicker>
+                </div>
+            </div>
+            <br>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>{{'all'|translate}}</label>
+                    <md-checkbox ng-model="AllProduct" aria-label="Checkbox 1">
+                    </md-checkbox>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>{{'Product' | translate}}</label>
+                    <ui-select data-ng-disabled="AllProduct" class="form-control selectAlgin"
+                               data-ng-model="SalesReport.ProductID" theme="select2"
+                               style="width: 100%">
+                        <ui-select-match placeholder="{{'Product' | translate}}">
+                            {{$select.selected.product_name}}
+                        </ui-select-match>
+                        <ui-select-choices
+                                repeat="products.ProductID as products in Product | filter: $select.search">
+                            <div ng-bind-html="products.product_name | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>{{'all'|translate}}</label>
+                    <md-checkbox ng-model="AllBrand" aria-label="Checkbox 1">
+                    </md-checkbox>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>{{'BrandName' | translate}}</label>
+                    <ui-select class="form-control selectAlgin"
+                               data-ng-disabled="AllBrand"
+                               ng-model="SalesReport.BrandID" theme="select2"
+                               style="width: 100%">
+                        <ui-select-match placeholder="{{'BrandName' | translate}}">
+                            {{$select.selected.BarndName}}
+                        </ui-select-match>
+                        <ui-select-choices
+                                repeat="brands.BrandID as brands in Brand | filter: $select.search">
+                            <div ng-bind-html="brands.BarndName | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
+
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>{{'all'|translate}}</label>
+                    <md-checkbox ng-model="AllCategory" aria-label="Checkbox 1">
+                    </md-checkbox>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+
+                    <label>{{'CategoryName' | translate}}</label>
+                    <ui-select class="form-control selectAlgin"
+                               data-ng-disabled="AllCategory"
+                               ng-model="SalesReport.CategoryID" theme="select2"
+                               style="width: 100%">
+                        <ui-select-match placeholder="{{'AddCategory' | translate}}">
+                            {{$select.selected.categroy_name}}
+                        </ui-select-match>
+                        <ui-select-choices
+                                repeat="categorys.CategoryID as categorys in Category | filter: $select.search">
+                            <div ng-bind-html="categorys.categroy_name | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+            </div>
+            <br>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>{{'all'|translate}}</label>
+                    <md-checkbox ng-model="AllUsers" aria-label="Checkbox 1">
+                    </md-checkbox>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>{{'UserName' | translate}}</label>
+                    <ui-select class="form-control selectAlgin"
+                               data-ng-disabled="AllUsers"
+                               ng-model="SalesReport.UserID" theme="select2"
+                               style="width: 100%">
+                        <ui-select-match placeholder="{{'UserName' | translate}}">
+                            {{$select.selected.Name}}
+                        </ui-select-match>
+                        <ui-select-choices
+                                repeat="users.UserID as users in Users | filter: $select.search">
+                            <div ng-bind-html="users.Name | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+            </div>
+            <br>
+
+            <div class="col-md-12">
+                <button class="btn btn-success col-md-12" data-ng-click="search()"><i class="fa fa-save"></i>{{'Search'
+                    |
+                    translate}}&nbsp;&nbsp;
+                </button>
+            </div>
+        </div>
+    </div>
+    <br> <br>
+</div>
+<div class="panel" dir="{{'dir'| translate}}">
+    <div class="panel-body">
+        <div class="row">
+        <div class="col-md-6">
+        <table class="table table-bordered table-striped">
+        <tr>
+        <th>{{'NumberOfOperation'|translate}}</th>
+        <th>{{'NumberOFProduct'|translate}}</th>
+        <th>{{'Total'|translate}}</th>
+
+        </tr>
+        <tr>
+        <td>{{NumberOfOperation}}</td>
+        <td>{{NumberOfProduct}}</td>
+        <td>{{Total}}</td>
+        </tr>
+        </table>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table datatable="ng" data-dt-options="dtOptions" data-dt-column-defs="dtColumnDefs"
+                           class="table table-bordered table-striped hover">
+                        <thead>
+                        <tr>
+                            <th>{{'OrderID' | translate}}</th>
+                            <th>{{'ProductName'|translate}}</th>
+                            <th>{{'BrandName'|translate}}</th>
+                            <th>{{'CategoryName'|translate}}</th>
+                            <th>{{'Size'|translate}}</th>
+                            <th>{{'ProductPrice'|translate}}</th>
+                            <th>{{'ProductQTY'|translate}}</th>
+                            <th>{{'Total'|translate}}</th>
+                            <th>{{'BarCode'|translate}}</th>
+                            <th>{{'SerialNumber'|translate}}</th>
+                            <!--<th ng-class="{'hide':OrderList.OrderState === 2}">{{'CloseOrder'|translate}}</th>-->
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr data-ng-repeat="serachResult in SerachResult">
+                            <td>{{serachResult.OrderID}}</td>
+                            <td>{{serachResult.product_name}}</td>
+                            <td>{{serachResult.BarndName}}</td>
+                            <td>{{serachResult.categroy_name}}</td>
+                            <td>{{serachResult.size}}</td>
+                            <td>{{serachResult.ProductPriceDesc}}</td>
+                            <td>{{serachResult.ItemsQTY}}</td>
+                            <td ng-init="$parent.Total = $parent.Total + (serachResult.ProductPriceDesc * serachResult.ItemsQTY)">{{serachResult.ProductPriceDesc * serachResult.ItemsQTY}}</td>
+                            <td>{{serachResult.BarCode}}</td>
+                            <td>{{serachResult.SeialNumbers}}</td>
+                            <!--<td ng-class="{'hide':orderList.OrderState === 2}"><button class="btn btn-primary" ng-click="CloseOrder(orderList)">{{'CloseOrder'|translate}}</button></td>-->
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

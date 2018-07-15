@@ -1,0 +1,40 @@
+<form name="frm" class="form-horizontal" novalidate dir="{{'dir'| translate}}">
+    <div class="modal-header">
+        <button type="button" class="close" data-ng-click="Cancel()" aria-hidden="true">×</button>
+        <h3 class="modal-title">
+        </h3>
+    </div>
+
+    <div class="modal-body">
+        <table class="table table-bordered table-striped hover">
+            <thead>
+
+            <tr>
+                <th>
+                    اسم الفرع
+                    <!--{{ 'ProductMumber' | translate}}-->
+                </th>
+                <th>
+                    عدد المنتجات
+                    <!--{{ 'BranshName' | translate}}-->
+                </th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr data-ng-repeat="number in Number">
+                <td>{{number.name}}</td>
+
+                <td>{{number.ProductNumber}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-success" data-ng-click="Save()"><i class="fa fa-save"></i>{{'Save' | translate}}&nbsp;&nbsp;
+        </button>
+        <button class="btn" data-ng-click="Cancel()"><i class="fa fa-close"></i>{{'Cancel'| translate}}&nbsp;</button>
+    </div>
+</form>

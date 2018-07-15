@@ -1,0 +1,39 @@
+<style>
+    .rowGray{
+        background: #95989A;
+    }
+</style>
+<div class="container-fluid" dir="{{'dir'| translate}}">
+    <div class="panel panel-default clearfix">
+        <br>
+        <div class="table-responsive">
+            <table datatable="ng" data-dt-options="dtOptions" data-dt-column-defs="dtColumnDefs"
+                   class="table table-bordered table-striped hover">
+                <thead>
+                <tr>
+                    <th>{{'ComplainReview' | translate}}</th>
+                    <th>{{'ComplinType'|translate}}</th>
+                    <th>{{'Tilte'|translate}}</th>
+                    <th>{{'Description'|translate}}</th>
+
+
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr data-ng-repeat="Complinlist in complinlist " ng-class="{'rowGray':Complinlist.IsRead === 1}">
+                    <td>
+                        <button class="btn btn-sm btn-primary" data-ng-click="ComplainReview(Complinlist)">
+                            {{'ComplainReview' | translate}}
+                        </button>
+                    </td>
+                    <td>{{Complinlist.type_name}}</td>
+                    <td>{{Complinlist.Tittle}}</td>
+                    <td>{{Complinlist.Descriotion}}</td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

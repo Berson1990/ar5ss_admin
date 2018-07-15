@@ -1,0 +1,122 @@
+<div class="panel" dir="{{'dir'| translate}}">
+    <h3 class="panel-heading"> {{'CashOrder'| translate}}</h3>
+
+    <div class="panel-body">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label> {{'FromDate' |translate}}</label>
+                    <md-datepicker data-ng-model="SalesReport.FromDate" md-placeholder="Enter date"></md-datepicker>
+                </div>
+            </div>
+            <br>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label> {{'ToDate' |translate}}</label>
+                    <md-datepicker data-ng-model="SalesReport.ToDate" md-placeholder="Enter date"></md-datepicker>
+                </div>
+            </div>
+            <br>
+
+            <br>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>{{'all'|translate}}</label>
+                    <md-checkbox ng-model="AllUsers" aria-label="Checkbox 1">
+                    </md-checkbox>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>{{'UserName' | translate}}</label>
+                    <ui-select class="form-control selectAlgin"
+                               data-ng-disabled="AllUsers"
+                               ng-model="SalesReport.SupplierID" theme="select2"
+                               style="width: 100%">
+                        <ui-select-match placeholder="{{'UserName' | translate}}">
+                            {{$select.selected.Name}}
+                        </ui-select-match>
+                        <ui-select-choices
+                                repeat="users.UserID as users in Users | filter: $select.search">
+                            <div ng-bind-html="users.Name | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+            </div>
+            <br>
+
+            <div class="col-md-12">
+                <button class="btn btn-success col-md-12" data-ng-click="search()"><i class="fa fa-save"></i>{{'Search'
+                    |
+                    translate}}&nbsp;&nbsp;
+                </button>
+            </div>
+        </div>
+    </div>
+    <br> <br>
+</div>
+<div class="panel" dir="{{'dir'| translate}}">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-6">
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>{{'NumberOfOperation'|translate}}</th>
+                        <th>{{'NumberOFProduct'|translate}}</th>
+                        <th>{{'Total'|translate}}</th>
+
+                    </tr>
+                    <tr>
+                        <td>{{NumberOfOperation}}</td>
+                        <td>{{NumberOfProduct}}</td>
+                        <td>{{Total2}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table datatable="ng" data-dt-options="dtOptions" data-dt-column-defs="dtColumnDefs"
+                           class="table table-bordered table-striped hover">
+                        <thead>
+                        <tr>
+                            <th>{{'OrderDate' | translate}}</th>
+                            <th>{{'SupplerisBill' | translate}}</th>
+                            <th>{{'OrderID'|translate}}</th>
+                            <th>{{'SupplierName'|translate}}</th>
+                            <th>{{'SupplierPresentage'|translate}}</th>
+                            <th>{{'Total'|translate}}</th>
+                            <th>{{'SupplierFinal'|translate}}</th>
+                            <th>{{'Ar5ssFinal'|translate}}</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr data-ng-repeat="orderCashList in OrderCashList">
+                            <td>{{orderCashList.created_at}}</td>
+                            <td><button class="btn btn-primary" data-ng-click="SuppliersBills(orderCashList)">{{'SupplerisBill' | translate}}</button></td>
+                            <td>{{orderCashList.OrderID}}</td>
+                            <td>{{orderCashList.Name}}</td>
+                            <td data-ng-if="orderCashList.Percentage !== '0.0'">{{orderCashList.Percentage}}</td>
+                            <td data-ng-if="orderCashList.Percentage === '0.0'" >{{Ar5sspresntage}}</td>
+                            <!--total-->
+                            <td ng-init="$parent.Total2 = $parent.Total2 + ((orderCashList.ProductPriceDesc *orderCashList.ItemsQTY))">{{(orderCashList.ProductPrice *orderCashList.ItemsQTY )}}</td>
+
+                            <!--supplier final -->
+                            <td data-ng-if="orderCashList.Percentage !== '0.0'">{{(orderCashList.ProductPriceDesc *orderCashList.ItemsQTY) -(((orderCashList.ProductPriceDesc *orderCashList.ItemsQTY) *( orderCashList.Percentage  )/100))  }}</td>
+                            <td data-ng-if="orderCashList.Percentage === '0.0'">{{(orderCashList.ProductPriceDesc *orderCashList.ItemsQTY) -(( (orderCashList.ProductPriceDesc *orderCashList.ItemsQTY) *(Ar5sspresntage  )/100) ) }}</td>
+
+                            <!-- Total Final -->
+                            <td data-ng-if="orderCashList.Percentage !== '0.0'" >{{((orderCashList.ProductPriceDesc *orderCashList.ItemsQTY) * (orderCashList.Percentage)/100 )}}</td>
+                            <td data-ng-if="orderCashList.Percentage === '0.0'" >{{ (orderCashList.ProductPriceDesc *orderCashList.ItemsQTY) *(Ar5sspresntage/100) }}</td>
+
+                        </tr>
+                        <!--</tbody>-->
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<div class="panel panel-body" dir="{{'dir' | translate}}">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table
+                       class="table table-bordered table-striped hover">
+                    <thead>
+                    <tr>
+                        <!--<th>{{'OrderID' | translate}}</th>-->
+
+                        <th>{{'SupplierName'|translate}}</th>
+                        <th>{{'Mobile'|translate}}</th>
+                        <th>{{'ProductName'|translate}}</th>
+                        <th>{{'BrandName'|translate}}</th>
+                        <th>{{'CategoryName'|translate}}</th>
+                        <th>{{'Size'|translate}}</th>
+                        <th>{{'ProductPrice'|translate}}</th>
+                        <th>{{'ProductPriceDesc'|translate}}</th>
+                        <th>{{'ProductQty'|translate}}</th>
+                        <th>{{'BarCode'|translate}}</th>
+                        <th>{{'SerialNumber'|translate}}</th>
+                    </tr>
+                    </thead>
+                    <tbody ng-repeat="(key, value) in OrderList | groupBy:'OrderID'">
+                    <tr  class="text-center text-uppercase text-danger">
+                        <td colspan="11">{{'OrderID' | translate}} &nbsp;{{key}}</td>
+                    </tr>
+                    <!--<tr data-ng-repeat="order in value ">-->
+                    <tr dir-paginate="order in value | itemsPerPage: 10">
+                        <!--<td >{{orderList.OrderID}}</td>-->
+                        <td>{{order.SupplierName}}</td>
+                        <td>{{order.SuppliersNumber}}</td>
+                        <td>{{order.product_name}}</td>
+                        <td>{{order.BarndName}}</td>
+                        <td>{{order.categroy_name}}</td>
+                        <td>{{order.size}}</td>
+                        <td>{{order.ProductPrice}}</td>
+                        <td>{{order.ProductPriceDesc}}</td>
+                        <td>{{order.ItemsQTY}}</td>
+                        <td>{{order.BarCode}}</td>
+                        <td>{{order.SeialNumbers}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <dir-pagination-controls></dir-pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>

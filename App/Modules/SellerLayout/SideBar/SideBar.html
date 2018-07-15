@@ -1,0 +1,247 @@
+<div class="page-sidebar navbar-collapse collapse" dir="{{'dir'| translate}}">
+    <!-- BEGIN SIDEBAR MENU -->
+    <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+    <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+    <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+    <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+    <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+    <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+    <ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200"
+        ng-class="{'page-sidebar-menu-closed': settings.layout.pageSidebarClosed}">
+        <li>
+            <a data-ui-sref="MasterSeller.SellerDashboard">
+                <i class="icon-settings"></i>
+                <span class="title"> {{'SellerDashboard'|translate}} </span>
+            </a>
+        </li>
+
+        <li>
+            <a href="javascript:" data-toggle="collapse" data-target="#Geographicallocation"><i
+                    class="fa fa-map-o"></i> {{'Geographicallocation'|translate}} <span class="arrow"></span></a>
+
+            <ul id="Geographicallocation" class="nav collapse " aria-expanded="true">
+                <li>
+                    <a data-ui-sref="MasterSeller.SellerStoreManagment">
+                        <span class="title"> {{'SellerStore'|translate}} </span>
+                    </a>
+                </li>
+                <li>
+                    <a data-ui-sref="MasterSeller.SupplierCity">
+                        <span class="title"> {{'SupplierCity'|translate}} </span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:" data-toggle="collapse" data-target="#Product"><i
+                    class="fa fa-product-hunt"></i> {{'Product'|translate}} <span class="arrow"></span></a>
+
+            <ul id="Product" class="nav collapse " aria-expanded="true">
+                <li>
+                    <a data-ui-sref="MasterSeller.ProductUnderAdd">
+                        <span class="title"> {{'ProductUnderAdd'|translate}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a data-ui-sref="MasterSeller.ProductUnderUpdate">
+                        <span class="title"> {{'ProductUnderUpdate'|translate}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a data-ui-sref="MasterSeller.MyProduct">
+                        <span class="title"> {{'MyProduct'|translate}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a data-ui-sref="MasterSeller.SellerProductManagment">
+
+                        <span class="title"> {{'AssginProductToStore'|translate}} </span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="javascript:" data-toggle="collapse" data-target="#Follow-up"><i
+                    class="fa fa-search"></i> {{'Followup'|translate}} <span class="arrow"></span></a>
+
+            <ul id="Follow-up" class="nav collapse " aria-expanded="true">
+
+
+                <li>
+                    <a data-ui-sref="MasterSeller.NewSupplierOrder">
+                        <span class="title"> {{'NewSupplierOrder'|translate}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a data-ui-sref="MasterSeller.OrdersForSupplires">
+                        <span class="title"> {{'OrdersForSupplires'|translate}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a data-ui-sref="MasterSeller.SupplierClosedOrder">
+                        <span class="title"> {{'ClosedOrdersForSupplires'|translate}}</span>
+                    </a>
+                </li>
+                <!--<li>-->
+                    <!--<a data-ui-sref="MasterSeller.SuppliersCancelOrder">-->
+                        <!--<span class="title"> {{'SuppliersCancelOrder'|translate}}</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <li>
+                    <a data-ui-sref="MasterSeller.LateOrder">
+
+                        <span class="title"> {{'LateOrder'|translate}}</span>
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:" data-toggle="collapse" data-target="#Financial"><i
+                    class="fa fa-credit-card"></i> {{'Financial'|translate}} <span class="arrow"></span></a>
+
+            <ul id="Financial" class="nav collapse " aria-expanded="true">
+                <li>
+                    <a data-ui-sref="MasterSeller.FinancialSituation" id="">
+                        <span class="title color"> {{'FinancialSituation' | translate}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a data-ui-sref="MasterSeller.SupplierBudgeting" id="">
+                        <span class="title color"> {{'Claims' | translate}}</span>
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:" data-toggle="collapse" data-target="#Others"><i
+                    class="fa fa-external-link"></i> {{'Others'|translate}} <span class="arrow"></span></a>
+            <ul id="Others" class="nav collapse " aria-expanded="true">
+                <li>
+                    <a data-ui-sref="MasterSeller.SupplierAddComplain">
+
+                        <span class="title"> {{'SupplierCompalin'|translate}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a data-ui-sref="MasterSeller.Circulars">
+
+                        <span class="title"> {{'AdministrativeCirculars'|translate}}</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+
+
+
+
+        <!--<li>-->
+        <!--<a data-ui-sref="Master.SupplierManagment">-->
+        <!--<i class="icon-settings"></i>-->
+        <!--<span class="title"> {{'AddSupplier'|translate}} </span>-->
+
+        <!--</a>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<a data-ui-sref="Master.SetAdmin">-->
+        <!--<i class="icon-settings"></i>-->
+        <!--<span class="title"> {{'Admin'|translate}} </span>-->
+
+        <!--</a>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<a data-ui-sref="Master.UserManagment">-->
+        <!--<i class="icon-settings"></i>-->
+        <!--<span class="title"> {{'UserManagment'|translate}} </span>-->
+
+        <!--</a>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<a data-ui-sref="Master.BrandManagment">-->
+        <!--<i class="icon-wrench"></i>-->
+        <!--<span class="title"> {{'AddBrand' | translate }}</span>-->
+        <!--&lt;!&ndash;<span class="arrow "></span>&ndash;&gt;-->
+        <!--</a>-->
+
+        <!--</li>-->
+        <!--<li class="dropdown">-->
+        <!--<a class="dropdown-toggle" data-toggle="dropdown">-->
+        <!--<i class="icon-wrench"></i>-->
+        <!--<span>{{'Report' | translate}}</span>-->
+        <!--<span class="arrow "></span>-->
+        <!--</a>-->
+        <!--<ul class="dropdown-menu">-->
+        <!--<li>-->
+        <!--<a data-ui-sref="Master.SalesReport" id="SalesReport">-->
+        <!--<i class="icon-user"></i>-->
+        <!--<span class="title"> {{'SalesReport' | translate}}</span>-->
+        <!--</a>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<a data-ui-sref="Master.UsersReport" id="UsersReport">-->
+        <!--<i class="icon-user"></i>-->
+        <!--<span class="title"> {{'UsersReport' | translate}}</span>-->
+        <!--</a>-->
+        <!--</li>-->
+        <!--</ul>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<a data-ui-sref="Master.CategoryManagment" id="sidebar_menu_link_profile">-->
+        <!--<i class="icon-user"></i>-->
+        <!--<span class="title"> {{'AddCategory' | translate}}</span>-->
+        <!--</a>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<a data-ui-sref="Master.SizeManagment" id="">-->
+        <!--<i class="icon-user"></i>-->
+        <!--<span class="title"> {{'Size' | translate}}</span>-->
+        <!--</a>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<a data-ui-sref="Master.AboutManagment" id="">-->
+        <!--<i class="icon-user"></i>-->
+        <!--<span class="title"> {{'AboutPolicy' | translate}}</span>-->
+        <!--</a>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<a data-ui-sref="Master.Complain" id="">-->
+        <!--<i class="icon-user"></i>-->
+        <!--<span class="title"> {{'Complain&Suggest' | translate}}</span>-->
+        <!--</a>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<a data-ui-sref="Master.ProductManagment">-->
+        <!--<i class="icon-check"></i>-->
+        <!--<span class="title"> {{'AddProduct'|translate}}</span>-->
+        <!--</a>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<a data-ui-sref="Master.GroupShowManagment">-->
+        <!--<i class="icon-check"></i>-->
+        <!--<span class="title"> {{'GroupShow'|translate}}</span>-->
+        <!--</a>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<a data-ui-sref="Master.ProductPropoertyManagment">-->
+        <!--<i class="icon-check"></i>-->
+        <!--<span class="title"> {{'ProductProperty'|translate}}</span>-->
+        <!--</a>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<a data-ui-sref="Master.HotOfferManagment">-->
+        <!--<i class="icon-check"></i>-->
+        <!--<span class="title"> {{'HotOffer'|translate}}</span>-->
+        <!--</a>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<a data-ui-sref="Master.HotAdsMangment">-->
+        <!--<i class="icon-check"></i>-->
+        <!--<span class="title"> {{'HotAdds'|translate}}</span>-->
+        <!--</a>-->
+        <!--</li>-->
+    </ul>
+    <!-- END SIDEBAR MENU -->
+</div>

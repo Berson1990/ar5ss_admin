@@ -1,0 +1,58 @@
+<div class="panel" dir="{{'dir'| translate}}">
+    <h3 class="panel-heading">{{'MyProduct'|translate}}</h3>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table datatable="ng" data-dt-options="dtOptions" data-dt-column-defs="dtColumnDefs" class="table table-bordered table-striped hover">
+                        <thead>
+                        <tr>
+
+
+                            <th style="display: block">{{'ProductID'|translate}}</th>
+                            <th>{{'ProductName'|translate}}</th>
+                            <th>{{'ProductNameE'|translate}}</th>
+                            <th>{{'BrandName'|translate}}</th>
+                            <th>{{'BrandNameE'|translate}}</th>
+                            <th>{{'CategoryName'|translate}}</th>
+                            <th>{{'CategoryNameE'|translate}}</th>
+                            <th>{{'Size'|translate}}</th>
+                            <th>{{'ProductPrice'|translate}}</th>
+                            <th>{{'ProductPriceDesc'|translate}}</th>
+                            <th>{{'Rate'|translate}}</th>
+                            <th>{{'BarCode'|translate}}</th>
+                            <th>{{'SerialNumber'|translate}}</th>
+                            <th>{{'Udated'|translate}}</th>
+                            <th>{{'UpdateBalance'|translate}}</th>
+                            <th> {{'Productbalance'|translate}}</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr data-ng-repeat="ProductList in Product">
+                            <td style="display: block">{{ProductList.ProductID}}</td>
+                            <td>{{ProductList.product_name}}</td>
+                            <td>{{ProductList.product_nameen}}</td>
+                            <td>{{ProductList.BarndName}}</td>
+                            <td>{{ProductList.BarndNameE}}</td>
+                            <td>{{ProductList.categroy_name}}</td>
+                            <td>{{ProductList.categroy_nameen}}</td>
+                            <td>{{ProductList.size}}</td>
+                            <td>{{ProductList.ProductPrice}}</td>
+                            <td>{{ProductList.ProductPriceDesc}}</td>
+                            <td>{{ProductList.Rate}}</td>
+                            <td>{{ProductList.BarCode}}</td>
+                            <td>{{ProductList.SeialNumbers}}</td>
+                            <td><button data-ng-class="{'hide':ProductList.Updated === 1}" class="btn btn-danger" data-ng-click="UpdateProduct(ProductList)">{{'Udated'|translate}}</button></td>
+                            <td data-ng-if="ProductList.ProductQTY !== null"><button  class="btn btn-danger" data-ng-click="UpdateProductQTY(ProductList)">{{'UpdateBalance'|translate}} </button></td>
+                            <td data-ng-if="ProductList.ProductQTY === null">{{'ThisproductDontAssginToStore' | translate}}</td>
+                            <td data-ng-if="ProductList.Date === '0000-00-00'"><button class="btn btn-warrning" data-ng-click="getProductBalance(ProductList)"> {{ProductList.ProductQTY}} {{'Productbalance'|translate}}</button></td>
+                            <td data-ng-if="ProductList.Date !== '0000-00-00'"><button class="btn btn-warrning" data-ng-click="getProductBalance(ProductList)"> {{ProductList.NproductQTY}} {{'Productbalance'|translate}}</button></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

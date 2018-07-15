@@ -1,0 +1,43 @@
+<style>
+    .rowGray {
+        background: #95989A;
+    }
+</style>
+<div class="container-fluid" dir="{{'dir'| translate}}">
+    <div class="panel panel-default clearfix">
+        <h3 class="panel-heading"> {{'AboutPolicy'| translate}}</h3>
+        <br>
+        <div class="table-responsive">
+            <table datatable="ng" data-dt-options="dtOptions" data-dt-column-defs="dtColumnDefs"
+                   class="table table-bordered table-striped hover">
+                <thead>
+                <tr>
+                    <th>
+                        <button class="btn btn-sm btn-primary" data-ng-click="AddEdit({},false)">
+                            {{'AddComlain' | translate}}
+                        </button>
+                    </th>
+
+                    <th>{{'Tilte'|translate}}</th>
+                    <th>{{'Description'|translate}}</th>
+                    <th>{{'Delete'|translate}}</th>
+
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr data-ng-repeat="Complinlist in complinlist ">
+                    <td>
+                        <button class="btn btn-sm btn-primary" data-ng-click="AddEdit(Complinlist,true)">
+                            {{'Edit' | translate}}
+                        </button>
+                    </td>
+                    <td>{{Complinlist.Tittle}}</td>
+                    <td>{{Complinlist.Descriotion}}</td>
+                    <td><button class="btn btn-danger" data-ng-click="Delete(Complinlist)">{{'Delete'|translate}}</button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

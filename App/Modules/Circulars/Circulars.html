@@ -1,0 +1,25 @@
+<div class="container-fluid" dir="{{'dir'| translate}}">
+    <div class="panel panel-default clearfix">
+        <h3 class="panel-heading"> {{'AdministrativeCirculars'| translate}}</h3>
+        <br>
+        <div class="table-responsive">
+            <table datatable="ng" data-dt-options="dtOptions" data-dt-column-defs="dtColumnDefs"
+                   class="table table-bordered table-striped hover">
+                <thead>
+                <tr>
+                    
+                    <th>{{'AdministrativeCircularsID'|translate}}</th>
+                    <th>{{'Post'|translate}}</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr data-ng-repeat="adminCirculList in AdminCirculList ">
+                    <td>{{adminCirculList.ID}}</td>
+                    <td>{{adminCirculList.Post}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="container-fluid" dir="{{'dir'| translate}}">
+    <div class="panel panel-default clearfix">
+        <h3 class="panel-heading"> {{'SellerStore'| translate}}</h3>
+        <br>
+        <div class="table-responsive">
+            <table datatable="ng" data-dt-options="dtOptions" data-dt-column-defs="dtColumnDefs"
+                   class="table table-bordered table-striped hover">
+                <thead>
+                <tr>
+
+                    <td>
+                        <button class="btn btn-sm btn-block btn-success" data-ng-click="AddEdit({},false)">
+                            {{'Add'|translate}}
+                        </button>
+                    </td>
+                    <th>{{'ShopeName'|translate}}</th>
+                    <th>{{'ShopeNameE'|translate}}</th>
+                    <th>{{'Description'|translate}}</th>
+                    <th>{{'DescriptionE'|translate}}</th>
+                      <th>{{'City'|translate}}</th>
+                    <th>{{'Long'|translate}}</th>
+                    <th>{{'Lar'|translate}}</th>
+                    <th>{{'Delete'|translate}}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr data-ng-repeat="sellerStoreList in SellerStoreList ">
+                    <td>
+                        <button class="btn btn-sm btn-block btn-warning"
+                                data-ng-click="AddEdit(sellerStoreList,true)">{{'Edit' | translate}}
+                        </button>
+                    </td>
+                    <td>{{sellerStoreList.name}}</td>
+                    <td>{{sellerStoreList.nameen}}</td>
+                    <td>{{sellerStoreList.Descrption}}</td>
+                    <td>{{sellerStoreList.DescrptionEn}}</td>
+                    <td>{{sellerStoreList.city_name}}</td>
+                    <td>{{sellerStoreList.Long}}</td>
+                    <td>{{sellerStoreList.Lat}}</td>
+                    <td><button class="btn btn-sm btn-danger" data-ng-click="Delete(sellerStoreList)">{{'Delete'|translate}}</button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

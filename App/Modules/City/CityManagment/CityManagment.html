@@ -1,0 +1,34 @@
+<div class="container-fluid" dir="{{'dir'| translate}}">
+    <div class="panel panel-default clearfix">
+        <h3 class="panel-heading"> {{'CityManagment'| translate}}</h3>
+        <br>
+        <div class="table-responsive">
+            <table datatable="ng" data-dt-options="dtOptions" data-dt-column-defs="dtColumnDefs"
+                   class="table table-bordered table-striped hover">
+                <thead>
+                <tr>
+
+                    <td>
+                        <button class="btn btn-sm btn-success" data-ng-click="CityAddEdit({},false)">
+                            {{'Add'|translate}}
+                        </button>
+                    </td>
+                    <th>{{'CityName'|translate}}</th>
+                    <th>{{'CityNameE'|translate}}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr data-ng-repeat="city in CityList "  id="{{city.BrandID}}">
+                    <td>
+                        <button class="btn btn-sm  btn-warning"
+                                data-ng-click="CityAddEdit(city,true)">{{'Edit' | translate}}
+                        </button>
+                    </td>
+                    <td>{{city.city_name}}</td>
+                    <td>{{city.city_nameen}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

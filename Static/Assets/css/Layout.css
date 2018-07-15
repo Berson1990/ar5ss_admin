@@ -1,0 +1,22 @@
+﻿.dropdown-language {
+	display: inline-block!important;
+}
+
+.dropdown-language a{
+	padding-top: 15px!important;
+	padding-bottom: 15px!important;
+	color: #9d9d9d;
+	background-color: transparent!important;
+}
+
+.dropdown-language a:hover{
+	color: #fff;
+}
+
+.dropdown-user {
+	display: inline-block!important; 
+}
+
+.dropdown-user a{
+	background: transparent!important
+}

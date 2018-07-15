@@ -1,0 +1,75 @@
+<form name="frm" class="form-horizontal" novalidate dir="{{'dir' | translate}}">
+    <div class="modal-header">
+        <button type="button" class="close" data-ng-click="Cancel()">×</button>
+        <h3 class="modal-title">
+            <!--<span data-ng-show=""><i class="glyphicon glyphicon-edit"></i>&nbsp;{{'Edit'| translate}}</span>-->
+            <!--<span data-ng-hide=""><i class="glyphicon glyphicon-plus"></i>&nbsp;{{'Add'| translate}}</span>-->
+        </h3>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>{{'Product' | translate}}</label>
+                    <ui-select class="form-control selectAlgin"
+                               data-ng-model="Product.ProductID" theme="select2"
+                               style="width: 100%">
+                        <ui-select-match placeholder="{{'Product' | translate}}">
+                            {{$select.selected.product_name}}
+                        </ui-select-match>
+                        <ui-select-choices
+                                repeat="products.ProductID as products in Product | filter: $select.search">
+                            <div ng-bind-html="products.product_name | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
+                    {{ProductID}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success" data-ng-click="Save()"><i class="fa fa-save"></i>{{'Save' | translate}}&nbsp;&nbsp;
+        </button>
+        <button class="btn" data-ng-click="Cancel()"><i class="fa fa-close"></i>{{'Cancel'| translate}}&nbsp;</button>
+    </div>
+
+
+</form>
+
+<div class="panel-body" dir="{{'dir' | translate}}">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table datatable="ng" data-dt-options="dtOptions" data-dt-column-defs="dtColumnDefs"
+                       class="table table-bordered table-striped hover">
+                    <thead>
+                    <tr>
+
+                        <th>{{'Geoupshow'|translate}}</th>
+                        <th>{{'GeoupShowE'|translate}}</th>
+
+                        <th>{{'Delete'|translate}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr data-ng-repeat="productgroup in ProductGroup">
+                        <td>{{productgroup.product_name}}</td>
+                        <td>{{productgroup.product_nameen}}</td>
+                        <td>
+                            <button class="btn btn-danger" data-ng-click="Delete(productgroup)">{{'AssignCancel'|translate}}
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

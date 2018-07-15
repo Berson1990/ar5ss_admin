@@ -1,0 +1,34 @@
+<form name="frm" class="form-horizontal" novalidate dir="{{'dir'|translate }}">
+    <div class="modal-header">
+        <button type="button" class="close" data-ng-click="Cancel()" aria-hidden="true">×</button>
+        <h3 class="modal-title">
+            {{CancelOrder}}
+        </h3>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="form-gorup">
+                <div class="col-md-12">
+                    <label for="Tittle"> {{'Tilte'|translate}}</label>
+                    <input id="Tittle" class="form-control" data-ng-model="complainObj.Tittle"
+                              placeholder="{{'Tilte'|translate}}">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-gorup">
+                <div class="col-md-12">
+                    <label for="Complain"> {{'Description'|translate}}</label>
+                    <textarea id="Complain" class="form-control" data-ng-model="complainObj.Descriotion"
+                              placeholder="{{'Description'|translate}}"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-success" data-ng-click="Save()"><i class="fa fa-save"></i>{{'Save' | translate}}&nbsp;&nbsp;
+        </button>
+        <button class="btn" data-ng-click="Cancel()"><i class="fa fa-close"></i>{{'Cancel'| translate}}&nbsp;</button>
+    </div>
+</form>

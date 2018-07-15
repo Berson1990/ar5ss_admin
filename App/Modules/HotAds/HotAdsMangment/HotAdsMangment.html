@@ -1,0 +1,65 @@
+<style>
+.md-warn{
+    width:20px;
+}
+</style>
+<div class="container-fluid" dir="{{'dir'| translate}}">
+    <div class="panel panel-default clearfix">
+
+
+        <div class="panel-heading"> {{'SliderModeApplication'| translate}}</div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-6"></div>
+                <div dir="{{'dir'| translate}}" class="col-md-3">
+                    <md-switch ng-model="cb2" aria-label="Switch 2" ng-true-value="'{{'Move'|translate}}'"
+                               ng-false-value="'{{'Stop'|translate}}'" class="md-warn" data-ng-change="Slider()">
+                        {{ cb2 }}
+                    </md-switch>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" dir="{{'dir'| translate}}">
+    <div class="panel panel-default clearfix">
+        <h3 class="panel-heading"> {{'HotOffer'| translate}}</h3>
+        <br>
+        <div class="table-responsive">
+            <table datatable="ng" data-dt-options="dtOptions" data-dt-column-defs="dtColumnDefs"
+                   class="table table-bordered table-striped hover">
+                <thead>
+                <tr>
+
+                    <td>
+                        <button class="btn btn-sm btn-success" data-ng-click="AddEdit({},false)">
+                            {{'Add'|translate}}
+                        </button>
+                    </td>
+                    <th>{{'HotAdsID'|translate}}</th>
+                    <th>{{'Image'|translate}}</th>
+                    <th>{{'AsgginProductOrSpicalOffer'|translate}}</th>
+                    <th>{{'Delete'|translate}}</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr data-ng-repeat="hotList in HotList ">
+                    <td>
+                        <button class="btn btn-sm btn-warning"
+                                data-ng-click="AddEdit(hotList,true)">{{'Edit' | translate}}
+                        </button>
+                    </td>
+                    <td>{{hotList.HotAdsID}}</td>
+                    <td style="width:100px;height:auto"><img class="img-responsive" src="{{hotList.Image}}" alt=""></td>
+                    <td><button class="btn btn-success" data-ng-click="AssginProductOrCategory(hotList)">{{'AsgginProductOrSpicalOffer'|translate}}</button></td>
+                    <td>
+                        <button class="btn  btn-sm btn-danger" data-ng-click="Delete(hotList)">{{'Delete'|translate}}
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

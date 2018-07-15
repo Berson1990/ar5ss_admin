@@ -1,0 +1,238 @@
+<style>
+    .box {
+        border-radius: 20px;
+        box-shadow: 1px 4px 10px #888888;
+        height: 200px
+    }
+
+    .text-color {
+        color: #95989A;
+    }
+
+    .number-color {
+        color: #424A60;
+        font-size: 45px;
+    }
+
+</style>
+
+
+<div id="AdminDashBoard" class="panel panel-body">
+    <!--first raw-->
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-2"></div>
+            <div class="col-md-2  box">
+                <a data-ui-sref="MasterSeller.NewSupplierOrder">
+                    <div class="col-md-12">
+                        <br>
+                        <center>
+                            <img class="img-responsive" src="Static/Assets/img/AdminDashBoard/Group 22.png" alt="">
+                        </center>
+                    </div>
+
+                    <div class="col-md-12">
+                        <br>
+                        <center>
+                            <span class="text-color">{{'NewSupplierOrder' | translate}}</span>
+                        </center>
+
+                        <center>
+                            <span class="number-color">{{NewOrder}}</span>
+                        </center>
+                    </div>
+                </a>
+
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-2  box">
+                <a data-ui-sref="MasterSeller.OrdersForSupplires">
+                    <div class="col-md-12">
+                        <br>
+                        <center>
+                            <img style="width: 74px;margin: -15px 0 -12px 0;" class="img-responsive" src="Static/Assets/img/AdminDashBoard/Untitled.png" alt="">
+                        </center>
+                    </div>
+                    <div class="col-md-12">
+                        <br>
+                        <center>
+                            <span class="text-color">{{'PendingOrders' | translate}}</span>
+                        </center>
+
+                        <center>
+                            <span class="number-color">{{PendingOrder}}</span>
+                        </center>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-2  box">
+                <a data-ui-sref="MasterSeller.SupplierClosedOrder">
+                    <div class="col-md-12">
+                        <br>
+                        <center>
+                            <img class="img-responsive" src="Static/Assets/img/AdminDashBoard/Group 22.png" alt="">
+                        </center>
+                    </div>
+                    <div class="col-md-12">
+                        <br>
+                        <center>
+                            <span class="text-color">{{'ClosedOrdersForSupplires' | translate}}</span>
+                        </center>
+
+                        <center>
+                            <span class="number-color">{{ClosedOrder}}</span>
+                        </center>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <!--second raw-->
+    <div class="space-25">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-2"></div>
+                <div class="col-md-2  box">
+                    <a data-ui-sref="MasterSeller.LateOrder">
+                        <div class="col-md-12">
+
+                            <br>
+                            <center>
+                                <img style="width: 74px;margin: -15px 0 -12px 0;" class="img-responsive" src="Static/Assets/img/AdminDashBoard/Untitled.png" alt="">
+                            </center>
+                        </div>
+                        <div class="col-md-12">
+                            <br>
+                            <center>
+                                <span class="text-color">{{'LateOrder' | translate}}</span>
+                            </center>
+
+                            <center>
+                                <span class="number-color">{{LateOrder}}</span>
+                            </center>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-1"></div>
+                <!--<div class="col-md-2  box">-->
+                    <!--<a data-ui-sref="Master.ProductState">-->
+                        <!--<div class="col-md-12">-->
+                            <!--<br>-->
+                            <!--<center>-->
+                                <!--<img style="width: 74px;" class="img-responsive"-->
+                                     <!--src="Static/Assets/img/AdminDashBoard/Untitled.png" alt="">-->
+                            <!--</center>-->
+                        <!--</div>-->
+                        <!--<div class="col-md-12">-->
+                            <!--<br>-->
+                            <!--<center>-->
+                                <!--<span class="text-color">{{'PendingProduct' | translate}}</span>-->
+                            <!--</center>-->
+
+                            <!--<center>-->
+                                <!--<span class="number-color">{{PendingPrdouct}}</span>-->
+                            <!--</center>-->
+                        <!--</div>-->
+                    <!--</a>-->
+                <!--</div>-->
+                <div class="col-md-1"></div>
+                <!--<div class="col-md-2  box">-->
+                    <!--<a data-ui-sref="Master.MyProductManagment">-->
+                        <!--<div class="col-md-12">-->
+                            <!--<br>-->
+                            <!--<center>-->
+                                <!--<img class="img-responsive" src="Static/Assets/img/AdminDashBoard/Group 22.png" alt="">-->
+                            <!--</center>-->
+                        <!--</div>-->
+                        <!--<div class="col-md-12">-->
+                            <!--<br>-->
+                            <!--<center>-->
+                                <!--<span class="text-color">{{'NumbersOfProduct' | translate}}</span>-->
+                            <!--</center>-->
+
+                            <!--<center>-->
+                                <!--<span class="number-color">{{ProductAprove}}</span>-->
+                            <!--</center>-->
+                        <!--</div>-->
+                    <!--</a>-->
+                <!--</div>-->
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <!--third raw-->
+        <!--<div class="row">-->
+            <!--<div class="col-md-12">-->
+                <!--<div class="col-md-2"></div>-->
+                <!--<div class="col-md-2  box">-->
+                    <!--<a data-ui-sref="Master.SalesReport">-->
+                        <!--<div class="col-md-12">-->
+                            <!--<br>-->
+                            <!--<center>-->
+                                <!--<img style="width: 74px;" class="img-responsive"-->
+                                     <!--src="Static/Assets/img/AdminDashBoard/Untitled.png" alt="">-->
+                            <!--</center>-->
+                        <!--</div>-->
+                        <!--<div class="col-md-12">-->
+                            <!--<br>-->
+                            <!--<center>-->
+                                <!--<span class="text-color">{{'PendingOrders' | translate}}</span>-->
+                            <!--</center>-->
+
+                            <!--<center>-->
+                                <!--<span class="number-color">{{PendingOrders}}</span>-->
+                            <!--</center>-->
+                        <!--</div>-->
+                    <!--</a>-->
+                <!--</div>-->
+                <!--<div class="col-md-1"></div>-->
+                <!--<div class="col-md-2  box">-->
+                    <!--<a data-ui-sref="Master.SalesReport">-->
+                        <!--<div class="col-md-12">-->
+                            <!--<br>-->
+                            <!--<center>-->
+                                <!--<img style="width: 80px;" class="img-responsive"-->
+                                     <!--src="Static/Assets/img/AdminDashBoard/1241414.png" alt="">-->
+                            <!--</center>-->
+                        <!--</div>-->
+                        <!--<div class="col-md-12">-->
+                            <!--<br>-->
+                            <!--<center>-->
+                                <!--<span class="text-color">{{'NumberOfOrders' | translate}}</span>-->
+                            <!--</center>-->
+
+                            <!--<center>-->
+                                <!--<span class="number-color">{{NumberOFOrders}}</span>-->
+                            <!--</center>-->
+                        <!--</div>-->
+                    <!--</a>-->
+                <!--</div>-->
+                <!--<div class="col-md-1"></div>-->
+                <!--<div class="col-md-2  ">-->
+
+                <!--</div>-->
+                <!--<div class="col-md-1"></div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <br>
+        <br>
+        <!--fourth raw-->
+        <!--<div class="row">-->
+        <!--<div class="col-md-12">-->
+        <!--<div class="col-md-2"></div>-->
+        <!--<div class="col-md-2  box"></div>-->
+        <!--<div class="col-md-1"></div>-->
+        <!--<div class="col-md-2  box"></div>-->
+        <!--<div class="col-md-1"></div>-->
+        <!--<div class="col-md-2  box"></div>-->
+        <!--<div class="col-md-1"></div>-->
+        <!--</div>-->
+        <!--</div>-->
+    </div>
+</div>

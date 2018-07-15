@@ -1,0 +1,39 @@
+<div class="container-fluid" dir="{{'dir'| translate}}">
+    <div class="panel panel-default clearfix">
+        <h3 class="panel-heading"> {{'Brand'| translate}}</h3>
+        <br>
+        <div class="table-responsive">
+            <table datatable="ng" data-dt-options="dtOptions" data-dt-column-defs="dtColumnDefs"
+                   class="table table-bordered table-striped hover">
+                <thead>
+                <tr>
+
+                    <td>
+                        <button class="btn btn-sm btn-success" data-ng-click="BrandAddEdit({},false)">
+                            {{'Add'|translate}}
+                        </button>
+                    </td>
+                    <th>{{'BrandName'|translate}}</th>
+                    <th>{{'BrandNameE'|translate}}</th>
+                    <th>{{'Logo'|translate}}</th>
+                    <!--<th>{{'Hide'|translate}}</th>-->
+                </tr>
+                </thead>
+                <tbody>
+                <tr data-ng-repeat="brandlist in Brand "  id="{{brandlist.BrandID}}">
+                    <td>
+                        <button class="btn btn-sm  btn-warning"
+                                data-ng-click="BrandAddEdit(brandlist,true)">{{'Edit' | translate}}
+                        </button>
+                    </td>
+                    <td>{{brandlist.BarndName}}</td>
+                    <td>{{brandlist.BarndNameE}}</td>
+                    <td style="width:100px;height:auto"><img class="img-responsive"  src="{{brandlist.Logo}}" alt=""></td>
+                    <!--<td><button class="btn btn-sm btn-primary" data-ng-click="Hide(brandlist.BrandID)">{{'Hide'|translate}}</button></td>-->
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,124 @@
+<style>
+    .angular-google-map-container {
+        height: 400px;
+    }
+</style>
+<form name="frm" class="form-horizontal" novalidate dir="{{'dir'|translate }}">
+    <div class="modal-header">
+        <button type="button" class="close" data-ng-click="Cancel()" aria-hidden="true">×</button>
+        <h3 class="modal-title">
+            <span data-ng-show="IsEditMode"><i class="glyphicon glyphicon-edit"></i>&nbsp;{{'Edit'| translate}}</span>
+            <span data-ng-hide="IsEditMode"><i class="glyphicon glyphicon-plus"></i>&nbsp;{{'Add'| translate}}</span>
+        </h3>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="form-gorup">
+                <div class="col-md-12">
+                    <label for="ShopeName">{{'ShopeName' | translate }} </label>
+                    <input type="text" ID="ShopeName" class="form-control" data-ng-model="SellerObj.name"
+                           placeholder="{{'ShopeName' | translate }}">
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="form-gorup">
+                <div class="col-md-12">
+                    <label for="ShopeNameE"> {{'ShopeNameE' |translate}}</label>
+                    <input type="text" id="ShopeNameE" class="form-control" data-ng-model="SellerObj.nameen"
+                           placeholder="{{'ShopeNameE' |translate}}">
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="form-gorup">
+                <div class="col-md-12">
+                    <label for="Description"> {{'Description' |translate}}</label>
+                    <input type="text" id="Description" class="form-control" data-ng-model="SellerObj.Descrption"
+                           placeholder="{{'Description' |translate}}">
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="form-gorup">
+                <div class="col-md-12">
+                    <label for="DescriptionE"> {{'DescriptionE' |translate}}</label>
+                    <input type="text" id="DescriptionE" class="form-control" data-ng-model="SellerObj.DescrptionEn"
+                           placeholder="{{'DescriptionE' |translate}}">
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="form-group">
+                <div class="col-md-12">
+                    <label>{{'City' | translate}}</label>
+                    <ui-select class="form-control selectAlgin"
+                               data-ng-model="SellerObj.CityID" theme="select2"
+                               style="width: 100%">
+                        <ui-select-match placeholder="{{'City' | translate}}">
+                            {{$select.selected.city_name}}
+                        </ui-select-match>
+                        <ui-select-choices
+                                repeat="citis.CityID as citis in City | filter: $select.search">
+                            <div ng-bind-html="citis.city_name | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+                                <div class="form-gorup">
+                                    <div class="col-md-12">
+                                        <label>{{'Location'|translate}}</label>
+                                        <!--<ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>-->
+                                        <!--<div id="googleMap" style="height:400px;"></div>-->
+                                        <div map-lazy-load="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNXwwEP2pG7SG6TxuhbaeUG4xoJZbNVWw&libraries=places">
+                                            <ng-map id="map" center="{{Lat}},{{Long}}" zoom="4" on-click="showInfo($event)"
+                                                    on-dragend="showInfo($event)">
+                                                <marker position="[{{Lat}},{{Long}}]" on-dragend="showInfo($event)"
+                                                        on-click="showInfo($event)" animation="Animation.BOUNCE" animation="DROP"
+                                                        draggable="true"></marker>
+                        </ng-map>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-success" data-ng-click="Save()"><i class="fa fa-save"></i>{{'Save' | translate}}&nbsp;&nbsp;
+        </button>
+        <button class="btn" data-ng-click="Cancel()"><i class="fa fa-close"></i>{{'Cancel'| translate}}&nbsp;</button>
+    </div>
+</form>
+<script>
+    //    $(document).ready(function () {
+    //        function myMap(isEditMode, Lat, Long) {
+    //            var Add = function () {
+    //                var mapProp = {
+    //                    center: new google.maps.LatLng(51.508742, -0.120850),
+    //                    zoom: 5
+    //                };
+    //                var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+    //            };
+    //            var Edit = function () {
+    //                var mapProp = {
+    //                    center: new google.maps.LatLng(Lat, Long),
+    //                    zoom: 5
+    //                };
+    //                var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+    //            };
+    //
+    //            return isEditMode ? Edit() : Add();
+    //        }
+    //
+    //    })
+</script>

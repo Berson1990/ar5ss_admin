@@ -1,0 +1,108 @@
+<div class="modal-header">
+    <button type="button" class="close" data-ng-click="Cancel()" aria-hidden="true">×</button>
+    <h3 class="modal-title">
+        {{'ProductIamge' | translate}}
+    </h3>
+</div>
+
+<div class="modal-body" dir="{{'dir'| translate}}">
+
+    <div class="row">
+        <div class="col-md-12">
+            <img id="ProductImage"
+                 src=""
+                 class="img-responsive" style="">
+            <label class="link" for="ProductImage"><i class="i-sp"></i>{{'ProductIamge' | translate}}</label>
+            <input type="file" accept="image/x-png, image/jpeg, image/jpg" id="Prdouct_img">
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-gorup">
+            <div class="col-md-12">
+                <label>{{'ColorName' | translate}}</label>
+                <ui-select class="form-control selectAlgin"
+                           ng-model="Product.ColorID" theme="select2"
+                           style="width: 100%">
+                    <ui-select-match placeholder="{{'ColorName' | translate}}">
+                        {{$select.selected.color_name}}
+                    </ui-select-match>
+                    <ui-select-choices
+                            repeat="colors.ColorID as colors in Color | filter: $select.search">
+                        <div ng-bind-html="colors.color_name | highlight: $select.search"></div>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="form-gorup">
+            <div class="col-md-12">
+                <button class="btn btn-success col-md-3" data-ng-click="Save()">{{'Save' | translate}}</button>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+
+</div>
+<div class="container-fluid" id="page-wrapper">
+
+    <div class="panel panel-default clearfix">
+        <div class="table-responsive">
+            <table data-datatable="ng" data-dt-options="dtOptions" data-dt-column-defs="dtColumnDefs"
+                   class="table table-striped table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>{{'ProductIamge'|translate}}</th>
+                    <th>{{'ColorName'|translate}}</th>
+                    <th>{{'ColorNameE'|translate}}</th>
+                    <th>{{'DeleteImage'|translate}}</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr data-ng-repeat="proclor in ProductColor">
+                    <td data-ng-repeat="image in proclor.product_image"><img src="{{image.Image}}"
+                                                                             style="width: 200px ;height: 200px"></td>
+                    <td>{{proclor.colors_of_product.color_name}}</td>
+                    <td>{{proclor.colors_of_product.color_nameen}}</td>
+                    <td>
+                        <button class="btn btn-danger" data-ng-click="deleteImage(proclor)">{{'DeleteImage'|
+                            translate}}
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal-footer">
+    <!--<button class="btn btn-success" data-ng-click="Save()"><i class="fa fa-save"></i>{{'Save' | translate}}&nbsp;&nbsp;-->
+    <!--</button>-->
+    <!--<button class="btn" data-ng-click="Cancel()"><i class="fa fa-close"></i>{{'Cancel'| translate}}&nbsp;</button>-->
+</div>
+
+
+<script>
+    function readFile() {
+
+        if (this.files && this.files[0]) {
+            var FR = new FileReader();
+            FR.onload = function (e) {
+                document.getElementById("ProductImage").src = e.target.result;
+                photo = e.target.result;
+                console.log(photo);
+            };
+
+            FR.readAsDataURL(this.files[0]);
+        }
+
+    }
+
+    document.getElementById("Prdouct_img").addEventListener("change", readFile, false);
+</script>

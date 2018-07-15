@@ -1,0 +1,46 @@
+<div class="panel" dir="{{'dir' | translate}}">
+    <div class="panel-body">
+        <h3 class="panel-heading"> {{'ProductProperty'| translate}}</h3>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table datatable="ng" data-dt-options="dtOptions" data-dt-column-defs="dtColumnDefs"
+                           class="table table-bordered table-striped hover">
+                        <thead>
+                        <tr>
+
+                            <td>
+                                <button class="btn btn-sm btn-block btn-success" data-ng-click="AddEdit({},false)">
+                                    {{'AddNewProperty'|translate}}
+                                </button>
+                            </td>
+                            <th>{{'PropertyName'|translate}}</th>
+                            <th>{{'PropertyNameE'|translate}}</th>
+                            <th >{{'CategoryName'| translate}}</th>
+                            <th >{{'CategoryNameE'| translate}}</th>
+                            <!--<th>{{'assginProductTopropery' | translate}}</th>-->
+                            <th>{{'Delete'|translate}}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr data-ng-repeat="property in PropertyList">
+                            <td>
+                                <button class="btn btn-sm btn-block btn-warning"
+                                        data-ng-click="AddEdit(property,true)">{{'Edit' | translate}}
+                                </button>
+                            </td>
+                            <td>{{property.property_name}}</td>
+                            <td>{{property.property_namee}}</td>
+                            <td >{{property.categroy_name}}</td>
+                            <td >{{property.categroy_nameen}}</td>
+                            <!--<td><button class="btn  btn-sm btn-block btn-primary" data-ng-click="Assgin(property)">{{'assginProductTopropery'| translate}}</button></td>-->
+                            <td><button class="btn btn-sm btn-block btn-danger" data-ng-click="Delete(property)">{{'Delete'|translate}}</button></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

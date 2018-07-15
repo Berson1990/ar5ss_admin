@@ -1,0 +1,38 @@
+<div class="container-fluid" dir="{{'dir'| translate}}">
+    <div class="panel panel-default clearfix">
+        <div class="panel-heading"> {{'AssginProductToStore'| translate}}</div>
+        <br>
+        <div class="table-responsive">
+            <table datatable="ng" data-dt-options="dtOptions" data-dt-column-defs="dtColumnDefs"
+                   class="table table-bordered table-striped hover">
+                <thead>
+                <tr>
+
+                    <td>
+                    </td>
+                    <th>{{'ShopeName'|translate}}</th>
+                    <th>{{'ShopeNameE'|translate}}</th>
+                    <th>{{'Description'|translate}}</th>
+                    <th>{{'DescriptionE'|translate}}</th>
+
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr data-ng-repeat="sellerStoreList in SellerStoreList ">
+                    <td>
+                        <button class="btn btn-sm btn-block btn-warning"
+                                data-ng-click="Assgin(sellerStoreList,true)">{{'AssginProductToStore' | translate}}
+                        </button>
+                    </td>
+                    <td>{{sellerStoreList.name}}</td>
+                    <td>{{sellerStoreList.nameen}}</td>
+                    <td>{{sellerStoreList.Descrption}}</td>
+                    <td>{{sellerStoreList.DescriptionE}}</td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

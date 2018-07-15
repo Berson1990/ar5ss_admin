@@ -1,0 +1,60 @@
+<div class="panel" dir="{{'dir'| translate}}">
+    <div class="panel-body">
+
+        <h3 class="panel-heading"> {{'UserManagment'| translate}}</h3>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table datatable="ng" data-dt-options="dtOptions" data-dt-column-defs="dtColumnDefs"
+                           class="table table-bordered table-striped hover">
+                        <thead>
+                        <tr>
+                            <td>{{'UserState'| translate}}</td>
+
+                            <th>{{'Name'|translate}}</th>
+                            <th>{{'Email'|translate}}</th>
+                            <th>{{'Mobile'| translate}}</th>
+                            <th>{{'CountOfbuying'| translate}}</th>
+                            <th>{{'ClintLocation'| translate}}</th>
+                            <th>{{'RecentOrder'| translate}}</th>
+                            <th>{{'PreviousOrder'| translate}}</th>
+                            <th>{{'Complain'| translate}}</th>
+                            <th>{{'IsAtive' |translate}}</th>
+                            <th>{{'NumberTimeOFLogin'|translate}}</th>
+                            <th>{{'RegisterDate'|translate}}</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr data-ng-repeat="supplliersList in supplliers">
+                            <td>
+                                <button data-ng-click="StopSuppleris(supplliersList)"
+                                        ng-class="{'btn-warning':supplliersList.UserState ,'btn-danger':supplliersList.UserState == 1}"
+                                        class="btn btn-sm btn-block" ng-switch on="supplliersList.UserState">
+                                    <i ng-switch-when="0" class="fa fa fa-undo"> &nbsp; {{'Active'|translate}} </i>
+                                    <i ng-switch-when="1" class="fa fa fa-ban"> &nbsp; {{'Block'|translate}} </i>
+                                </button>
+                            </td>
+
+                            <td>{{supplliersList.Name}}</td>
+                            <td>{{supplliersList.Email}}</td>
+                            <td>{{supplliersList.Mobile}}</td>
+                            <td>{{supplliersList.Purchases}}</td>
+                            <td><button class="btn brn-sm btn-primary" data-ng-click="DisplayLocation(supplliersList)">{{'ClintLocation'| translate}}</button></td>
+                            <td><button class="btn brn-sm btn-success" data-ng-click="ClintOrderLsit(supplliersList,2)">{{'RecentOrder'| translate}}</button></td>
+                            <td><button class="btn brn-sm btn-warning" data-ng-click="ClintOrderLsit(supplliersList,3)">{{'PreviousOrder'| translate}}</button></td>
+                            <td><button class="btn brn-sm btn-action" data-ng-click="ClintComplain(supplliersList)">{{'Complain'| translate}}</button></td>
+                            <td data-ng-if="supplliersList.IsActive === 1">{{'IsActive'|translate}}</td>
+                            <td data-ng-if="supplliersList.IsActive === 0">{{'InActive'|translate}}</td>
+                            <td>{{supplliersList.NumberOfEntryTimes}}</td>
+                            <td>{{supplliersList.created_at}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

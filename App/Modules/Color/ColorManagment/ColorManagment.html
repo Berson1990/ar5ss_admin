@@ -1,0 +1,36 @@
+<div class="container-fluid" dir="{{'dir'| translate}}">
+    <div class="panel panel-default clearfix">
+        <h3 class="panel-heading"> {{'ColorManagment'| translate}}</h3>
+        <br>
+        <div class="table-responsive">
+            <table datatable="ng" data-dt-options="dtOptions" data-dt-column-defs="dtColumnDefs"
+                   class="table table-bordered table-striped hover">
+                <thead>
+                <tr>
+
+                    <td>
+                        <button class="btn btn-sm btn-success" data-ng-click="ColorAddEdit({},false)">
+                            {{'Add'|translate}}
+                        </button>
+                    </td>
+                    <th>{{'ColorName'|translate}}</th>
+                    <th>{{'ColorNameE'|translate}}</th>
+                    <th>{{'ColorHexa'|translate}}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr data-ng-repeat="color in ColorList "  id="{{city.BrandID}}">
+                    <td>
+                        <button class="btn btn-sm  btn-warning"
+                                data-ng-click="ColorAddEdit(color,true)">{{'Edit' | translate}}
+                        </button>
+                    </td>
+                    <td>{{color.color_name}}</td>
+                    <td>{{color.color_nameen}}</td>
+                    <td>{{color.ColorHexa}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,81 @@
+<div class="panel" dir="{{'dir'| translate}}">
+    <div class="panel-body">
+        <h3 class="panel-heading"> {{'AddSupplier'| translate}}</h3>
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table datatable="ng" data-dt-options="dtOptions" data-dt-column-defs="dtColumnDefs"
+                           class="table table-bordered table-striped hover">
+                        <thead>
+                        <tr>
+                            <td>{{'SupplierState'| translate}}</td>
+                            <!---->
+                            <td>
+                                <button class="btn btn-sm btn-success" data-ng-click="SupplerAddEdit({},false)">
+                                    {{'AddNewSupplier'|translate}}
+                                </button>
+                            </td>
+                            <!---->
+                            <th>{{'Name'|translate}}</th>
+                            <!---->
+                            <th>{{'Email'|translate}}</th>
+                            <!---->
+                            <th>{{'Mobile'| translate}}</th>
+                            <!---->
+                            <th>{{'ProductMumber'| translate}}</th>
+                            <!---->
+                            <th> {{"SupplersProduct"|translate}}</th>
+                            <!---->
+                            <th>{{'IsAtiveSupplier' |translate}}</th>
+                            <!---->
+                            <th>{{'Percentage' |translate}}</th>
+                            <th> {{"OperationClosed"|translate}}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr data-ng-repeat="supplliersList in supplliers">
+                            <!---->
+                            <td>
+                                <button data-ng-click="StopSuppleris(supplliersList)"
+                                        ng-class="{'btn-warning':supplliersList.UserState ,'btn-danger':supplliersList.UserState == 1}"
+                                        class="btn btn-sm" ng-switch on="supplliersList.UserState">
+                                    <i ng-switch-when="0" class="fa fa fa-undo"> &nbsp; {{'Active'|translate}} </i>
+                                    <i ng-switch-when="1" class="fa fa fa-ban"> &nbsp; {{'Block'|translate}} </i>
+                                </button>
+                            </td>
+                            <!---->
+                            <td>
+                                <button class="btn btn-sm btn-warning"
+                                        data-ng-click="SupplerAddEdit(supplliersList,true)">{{'Edit' | translate}}
+                                </button>
+                            </td>
+                            <!---->
+                            <td>{{supplliersList.Name}}</td>
+                            <!---->
+                            <td>{{supplliersList.Email}}</td>
+                            <!---->
+                            <td>{{supplliersList.Mobile}}</td>
+                            <!---->
+                            <td><button class="btn btn-primary" data-ng-click="supplierproductnumber(supplliersList)">{{'ProductMumber' | translate}}</button></td>
+                            <!---->
+                            <td>
+                                <button class="btn btn-sm btn-success"
+                                        data-ng-click="ShowSupplerProduct(supplliersList)">
+                                    {{'SupplersProduct'|translate}}
+                                </button>
+                            </td>
+                            <!---->
+                            <!--<td>{{getOrderClosed(supplliersList)}}</td>-->
+                            <td data-ng-if="supplliersList.IsActive === 1">{{'IsActive'|translate}}</td>
+                            <!---->
+                            <td data-ng-if="supplliersList.IsActive === 0">{{'InActive'|translate}}</td>
+                            <!---->
+                            <td>{{supplliersList.Percentage}}</td>
+                            <td>{{supplliersList.OrderClosed}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

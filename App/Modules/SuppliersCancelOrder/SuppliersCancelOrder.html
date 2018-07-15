@@ -1,0 +1,57 @@
+<div class="panel panel-body" dir="{{'dir' | translate}}">
+    <h3 class="panel-heading">{{'ClosedOrdersForSupplires' | translate}}</h3>
+    <div class="row">
+        <div class="row">
+            <div class="col-md-6">
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>{{'NumberOfOperation'|translate}}</th>
+                        <th>{{'NumberOFProduct'|translate}}</th>
+                        <th>{{'Total'|translate}}</th>
+
+                    </tr>
+                    <tr>
+                        <td>{{NumberOfOperation}}</td>
+                        <td>{{NumberOfProduct}}</td>
+                        <td>{{Total}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table datatable="ng" data-dt-options="dtOptions" data-dt-column-defs="dtColumnDefs"
+                       class="table table-bordered table-striped hover">
+                    <thead>
+                    <tr>
+                        <th>{{'OrderID' | translate}}</th>
+                        <th>{{'OrderDate' | translate}}</th>
+                        <th>{{'ProductName'|translate}}</th>
+                        <th>{{'BrandName'|translate}}</th>
+                        <th>{{'CategoryName'|translate}}</th>
+                        <th>{{'Size'|translate}}</th>
+                        <th>{{'ProductsPrice'|translate}}</th>
+                        <th>{{'BarCode'|translate}}</th>
+                        <th>{{'SerialNumber'|translate}}</th>
+                        <!--<th ng-class="{'hide':OrderList.OrderState === 2}">{{'CloseOrder'|translate}}</th>-->
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr data-ng-repeat="orderList in OrderList">
+                        <td>{{orderList.OrderID}}</td>
+                        <td>{{orderList.created_at}}</td>
+                        <td>{{orderList.product_name}}</td>
+                        <td>{{orderList.BarndName}}</td>
+                        <td>{{orderList.categroy_name}}</td>
+                        <td>{{orderList.size}}</td>
+                        <td>{{orderList.ProductPrice}}</td>
+                        <td>{{orderList.BarCode}}</td>
+                        <td>{{orderList.SeialNumbers}}</td>
+                        <!--<td ng-class="{'hide':orderList.OrderState === 2}"><button class="btn btn-primary" ng-click="CloseOrder(orderList)">{{'CloseOrder'|translate}}</button></td>-->
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

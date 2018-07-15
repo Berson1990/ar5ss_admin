@@ -1,0 +1,31 @@
+
+<div class="panel-body" dir="{{'dir' | translate}}">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table datatable="ng" data-dt-options="dtOptions" data-dt-column-defs="dtColumnDefs"
+                       class="table table-bordered table-striped hover">
+                    <thead>
+                    <tr>
+                        <th>{{'ProductName'|translate}}</th>
+                        <th>{{'ProductNameE'|translate}}</th>
+                        <!--<th>{{'ProductNumber'|translate}}</th>-->
+                        <th>{{'SerialNumber'|translate}}</th>
+                        <th>{{'BarCode'|translate}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr data-ng-repeat="SupplersProduct in SupplersProduct">
+                        <td>{{SupplersProduct.product_name}}</td>
+                        <td>{{SupplersProduct.product_nameen}}</td>
+                        <!--<td>{{SupplersProduct.ProductNumber}}</td>-->
+                        <td>{{SupplersProduct.SeialNumbers}}</td>
+                        <td>{{SupplersProduct.BarCode}}</td>
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

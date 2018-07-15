@@ -1,0 +1,35 @@
+<form name="frm" class="form-horizontal" novalidate dir="{{'dir' | translate}}">
+    <div class="modal-header">
+        <button type="button" class="close" data-ng-click="Cancel()" aria-hidden="true">×</button>
+        <h3 class="modal-title">
+            <span><i class="glyphicon glyphicon-edit"></i>&nbsp;{{'Edit'| translate}}</span>
+        </h3>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="form-gorup">
+                <div class="col-md-12">
+                    <label for="TimePreiod">{{'TimePreiod' | translate }} </label>
+                    <input type="text" ID="TimePreiod" class="form-control" data-ng-model="data.PeriodofTime"
+                           placeholder="{{'TimePreiod' | translate }}">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-gorup">
+                <div class="col-md-12">
+                    <label for="MostRequest"> {{'MostRequest' |translate}}</label>
+                    <input type="text" id="MostRequest" class="form-control" data-ng-model="data.RequestNumber"
+                           placeholder="{{'MostRequest' |translate}}">
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success" data-ng-click="Save()"><i class="fa fa-save"></i>{{'Save' | translate}}&nbsp;&nbsp;
+        </button>
+        <button class="btn" data-ng-click="Cancel()"><i class="fa fa-close"></i>{{'Cancel'| translate}}&nbsp;</button>
+    </div>
+</form>

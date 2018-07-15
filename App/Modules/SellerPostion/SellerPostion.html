@@ -1,0 +1,19 @@
+<div class="panel pnael-body" dir="{{'dir'|translate}}">
+    <h3 class="panel-heading"> {{'Location'| translate}}</h3>
+    <div class="row">
+        <div class="form-gorup">
+            <div class="col-md-12">
+
+                <div map-lazy-load="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNXwwEP2pG7SG6TxuhbaeUG4xoJZbNVWw&libraries=places">
+                    <ng-map id="map" center="{{Lat}},{{Long}}" zoom="4">
+
+                            <marker data-ng-repeat="l in SellerPostionLocation" position="[{{l.Lat}},{{l.Long}}]" title="{{l.nameen}}"></marker>
+                        </div>
+                    </ng-map>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>

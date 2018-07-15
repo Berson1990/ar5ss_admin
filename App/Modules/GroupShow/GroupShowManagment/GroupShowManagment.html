@@ -1,0 +1,41 @@
+<div class="panel" dir="{{'dir' | translate}}">
+    <div class="panel-body">
+        <h3 class="panel-heading"> {{'GroupShow'| translate}}</h3>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table datatable="ng" data-dt-options="dtOptions" data-dt-column-defs="dtColumnDefs"
+                           class="table table-bordered table-striped hover">
+                        <thead>
+                        <tr>
+
+                            <td>
+                                <button class="btn btn-sm btn-success" data-ng-click="AddEdit({},false)">
+                                    {{'AddNewGroup'|translate}}
+                                </button>
+                            </td>
+                            <th>{{'Geoupshow'|translate}}</th>
+                            <th>{{'GeoupShowE'|translate}}</th>
+                            <th>{{'assginproduct'| translate}}</th>
+                            <!--<th>{{'GroupSetting'| translate}}</th>-->
+                            <th>{{'Delete'|translate}}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr data-ng-repeat="groupList in GroupList" data-ng-class="{'hide': groupList.GroupShowID === 3  || groupList.GroupShowID === 1}">
+                            <td><button data-ng-class="{'hide':groupList.GroupShowID === 4}" class="btn btn-sm btn-warning" data-ng-click="AddEdit(groupList,true)">{{'Edit' | translate}}</button></td>
+                            <td>{{groupList.group_name}}</td>
+                            <td>{{groupList.group_nameen}}</td>
+                            <td><button class="btn btn-sm btn-primary" data-ng-click="Assgin(groupList)">{{'assginproduct'| translate}}</button></td>
+                            <!--<td ><button data-ng-class="{'hide': groupList.GroupShowID !== 4}"  class="btn btn-sm btn-success" data-ng-click="UpdateSetting()">{{'GroupSetting'| translate}}</button></td>-->
+                            <td ><button data-ng-class="{'hide':groupList.GroupShowID === 4} " class="btn btn-sm btn-danger" data-ng-click="Delete(groupList)">{{'Delete'|translate}}</button></td>
+
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+<div class="panel" dir="{{'dir'| translate}}">
+    <h3 class="panel-heading">{{'FinancialSituation'|translate}}</h3>
+    <div class="panel-body">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label> {{'FromDate' |translate}}</label>
+                    <md-datepicker data-ng-model="FromDate" md-placeholder="Enter date"></md-datepicker>
+                </div>
+            </div>
+            <br>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label> {{'ToDate' |translate}}</label>
+                    <md-datepicker data-ng-model="ToDate" md-placeholder="Enter date"></md-datepicker>
+                </div>
+            </div>
+
+            <br>
+
+            <br>
+            <div class="col-md-12">
+                <button class="btn btn-success col-md-12" data-ng-click="search()"><i class="fa fa-save"></i>{{'Search'
+                    |
+                    translate}}&nbsp;&nbsp;
+                </button>
+            </div>
+        </div>
+        <br> <br>
+    </div>
+<div class="panel" dir="{{'dir'| translate}}">
+    <div class="panel-body">
+        <div class="row">
+        <div class="col-md-6">
+        <table class="table table-bordered table-striped">
+        <tr>
+        <th>{{'NumberOfOperation'|translate}}</th>
+        <th>{{'NumberOFProduct'|translate}}</th>
+        <th>{{'TotalAfterPresntage'|translate}}</th>
+
+        </tr>
+        <tr>
+        <td>{{NumberOfOperation}}</td>
+        <td>{{NumberOfProduct}}</td>
+        <td>{{Total}}</td>
+        </tr>
+        </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table datatable="ng" data-dt-options="dtOptions" data-dt-column-defs="dtColumnDefs"
+                       class="table table-bordered table-striped hover">
+                    <thead>
+                    <tr>
+                        <th>{{'ProductName'|translate}}</th>
+                        <th>{{'AmoutOfOperation'|translate}}</th>
+                        <th>{{'TotalAfterPresantge'|translate}}</th>
+
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr data-ng-repeat="serachResult in SerachResult" ng-class="{hide:serachResult.ProductID === null}">
+                        <td>{{serachResult.product_name}}</td>
+                        <td>{{serachResult.ProductPriceDesc * serachResult.ItemsQTY}}</td>
+                        <!--<td data-ng-if=" serachResult.Percentage !== 0 ">{{(serachResult.ProductPriceDesc * serachResult.Percentage)- serachResult.ProductPriceDesc }}</td>-->
+                        <td ng-init="$parent.Total =$parent.Total + (((serachResult.ProductPriceDesc  * serachResult.ItemsQTY)  - ((serachResult.ProductPriceDesc  * serachResult.ItemsQTY)  * (serachResult.Percentage/ 100))))"  ng-if="serachResult.FinanceState === 1 &&  serachResult.Percentage !== '0.0' ">{{ ((serachResult.ProductPriceDesc  * serachResult.ItemsQTY)  - ((serachResult.ProductPriceDesc  * serachResult.ItemsQTY)  * (serachResult.Percentage/ 100)))}}</td>
+                        <td ng-init="$parent.Total =$parent.Total + (serachResult.ProductPriceDesc -(serachResult.ProductPriceDesc * Ar5sspresntage))" ng-if="serachResult.FinanceState === 1 &&  serachResult.Percentage === '0.0' ">{{ (serachResult.ProductPriceDesc  * serachResult.ItemsQTY ) -((serachResult.ProductPriceDesc * serachResult.ItemsQTY) *  Ar5sspresntage)/100}}</td>
+                        <td ng-init="$parent.Total =$parent.Total +(serachResult.ProductPriceDesc) " ng-if="serachResult.FinanceState === 2">{{ serachResult.ProductPriceDesc * serachResult.ItemsQTY}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

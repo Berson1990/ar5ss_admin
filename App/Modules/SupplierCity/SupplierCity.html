@@ -1,0 +1,54 @@
+<div class="container-fluid" dir="{{'dir'| translate}}">
+    <div class="panel panel-default clearfix">
+        <h3 class="panel-heading"> {{'CityManagment'| translate}}</h3>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-12">
+                    <label>{{'ChooseCitisYouWantServiceOnit' | translate}}</label>
+                    <ui-select class="form-control selectAlgin"
+                               data-ng-model="City.CityID" theme="select2"
+                               data-ng-change="AddorRemoveCity()"
+                               style="width: 100%">
+                        <ui-select-match placeholder="{{'City' | translate}}">
+                            {{$select.selected.city_name}}
+                        </ui-select-match>
+                        <ui-select-choices
+                                repeat="citis.CityID as citis in City | filter: $select.search">
+                            <div ng-bind-html="citis.city_name | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+</div>
+
+
+<br>
+<div class="container-fluid" dir="{{'dir'| translate}}">
+    <div class="panel panel-default clearfix">
+        <br>
+        <div class="table-responsive">
+            <table datatable="ng" data-dt-options="dtOptions" data-dt-column-defs="dtColumnDefs"
+                   class="table table-bordered table-striped hover">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th style="display: none"></th>
+                    <th>{{'CityName'|translate}}</th>
+                    <th>{{'CityNameE'|translate}}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr data-ng-repeat="city in CityList "  id="{{city.BrandID}}">
+                 <td><button class="btn btn-danger" data-ng-click="removeCity(city)"> {{'Remove' | translate}}</button></td>
+                    <td style="display: none;">{{city.CityID}}</td>
+                    <td>{{city.city_name}}</td>
+                    <td>{{city.city_nameen}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

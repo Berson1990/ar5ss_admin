@@ -1,0 +1,31 @@
+<div class="container-fluid" dir="{{'dir'| translate}}">
+    <div class="panel panel-default clearfix">
+        <h3 class="panel-heading"> {{'AboutPolicy'| translate}}</h3>
+        <br>
+        <div class="table-responsive">
+            <table datatable="ng" data-dt-options="dtOptions" data-dt-column-defs="dtColumnDefs"
+                   class="table table-bordered table-striped hover">
+                <thead>
+                <tr>
+
+                    <td></td>
+                    <th>{{'About'|translate}}</th>
+                    <th>{{'AboutE'|translate}}</th>
+                    <th>{{'Policy'|translate}}</th>
+                    <th>{{'PolicyE'|translate}}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr data-ng-repeat="about in About ">
+                    <td><button class="btn btn-sm btn-warning" data-ng-click="AddEdit(about,true)">{{'Edit' | translate}}</button></td>
+                    <td>{{about.about}}</td>
+                    <td>{{about.abouten}}</td>
+                    <td>{{about.policy}}</td>
+                    <td>{{about.policyen}}</td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+﻿body {
+	direction: ltr;
+}
+
+.dropdown-language {
+	float: left;
+}
+
+.languages-bar,
+.languages-bar li {
+	float: left !important;
+}
+
+.collapse-header {
+	margin-left: 10px;
+}

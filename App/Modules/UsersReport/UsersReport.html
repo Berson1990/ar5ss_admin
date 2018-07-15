@@ -1,0 +1,77 @@
+<div class="panel" dir="{{'dir'| translate}}">
+    <h3 class="panel-heading"> {{'UsersReport'| translate}}</h3>
+
+    <div class="panel-body">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label> {{'FromDate' |translate}}</label>
+                    <md-datepicker data-ng-model="UsersRport.FromDate" md-placeholder="Enter date"></md-datepicker>
+                </div>
+            </div>
+
+            <br>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label> {{'ToDate' |translate}}</label>
+                    <md-datepicker data-ng-model="UsersRport.ToDate" md-placeholder="Enter date"></md-datepicker>
+                </div>
+            </div>
+
+
+            <div class="col-md-12">
+                <button class="btn btn-sm btn-block btn-success col-md-12" data-ng-click="search()"><i class="fa fa-save"></i>{{'Search' | translate}}&nbsp;&nbsp;
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<br> <br>
+<div class="panel" dir="{{'dir'| translate}}">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table datatable="ng" data-dt-options="dtOptions" data-dt-column-defs="dtColumnDefs"
+                           class="table table-bordered table-striped hover">
+                        <thead>
+                        <tr>
+                            <td>{{'UserState'| translate}}</td>
+                            <th>{{'Name'|translate}}</th>
+                            <th>{{'Email'|translate}}</th>
+                            <th>{{'Mobile'| translate}}</th>
+                            <!--<th>{{ 'ProductPrice'| translate}}</th>-->
+                            <th>{{'CountOfbuying'| translate}}</th>
+                            <th>{{'ProductQTY'| translate}}</th>
+                            <th>{{'AmoutOfBuying'| translate}}</th>
+                            <th>{{'RegisterDate'|translate}}</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr data-ng-repeat="SerachResult in SerachResult">
+                            <td>
+                                <label ng-class="{'btn-warning':SerachResult.UserState ,'btn-danger':SerachResult.UserState == 0}"
+                                        class="btn btn-sm" ng-switch on="SerachResult.UserState">
+                                    <i ng-switch-when="1"> &nbsp; {{'isActive'|translate}} </i>
+                                    <i ng-switch-when="0"> &nbsp; {{'isBlock'|translate}} </i>
+                                </label>
+                            </td>
+
+                            <td>{{SerachResult.Name}}</td>
+                            <td>{{SerachResult.Email}}</td>
+                            <td>{{SerachResult.Mobile}}</td>
+                            <!--<td>{{ SerachResult.ProductPriceDesc}}</td>-->
+                            <td>{{SerachResult.Purchases}}</td>
+                            <td>{{SerachResult.ItemsQTY}}</td>
+                            <td> {{SerachResult.TotalAmount  }}</td>
+                            <td>{{SerachResult.created_at}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

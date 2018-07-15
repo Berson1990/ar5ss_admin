@@ -1,0 +1,285 @@
+<style>
+    .color {
+        color: #000;
+    }
+</style>
+<div id="sidebar" class="page-sidebar navbar-collapse collapse" dir="{{'dir' | translate}}">
+    <!-- BEGIN SIDEBAR MENU -->
+    <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+    <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+    <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+    <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+    <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+    <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+    <ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+        <li>
+            <a data-ui-sref="Master.AdminDashBoard">
+                <i class="fa fa-home" aria-hidden="true"></i>
+                <span class="title color"> {{'HomePage'|translate}} </span>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:" data-toggle="collapse" data-target="#UsersControlPanel"><i
+                    class="fa fa-users"></i> {{'UsersDashBoard'|translate}} <span class="arrow"></span></a>
+
+            <ul id="UsersControlPanel" class="nav collapse " aria-expanded="true">
+                <li>
+                    <a data-ui-sref="Master.SupplierManagment">
+                        <span class="title color"> {{'AddSupplier'|translate}} </span>
+                    </a>
+                </li>
+                <li>
+                    <a data-ui-sref="Master.SetAdmin">
+                        <span class="title color"> {{'Admin'|translate}} </span>
+                    </a>
+                </li>
+                <li>
+                    <a data-ui-sref="Master.UserManagment">
+                        <span class="title color"> {{'UserManagment'|translate}} </span>
+                    </a>
+                </li>
+            </ul>
+
+        </li>
+        <li>
+            <a href="javascript:" data-toggle="collapse" data-target="#ApplicationDashBoard"><i
+                    class="fa fa-mobile"></i> {{'ApplicationDashBoard'|translate}} <span class="arrow"></span></a>
+            <ul id="ApplicationDashBoard" class="nav collapse " aria-expanded="true">
+                <li>
+                    <a data-ui-sref="Master.GroupShowManagment">
+
+                        <span class="title color"> {{'GroupShow'|translate}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a data-ui-sref="Master.CategoryManagment" id="sidebar_menu_link_profile">
+
+                        <span class="title color"> {{'AddCategory' | translate}}</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a data-ui-sref="Master.ProductManagment">
+
+                        <span class="title color"> {{'AddProduct'|translate}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a data-ui-sref="Master.HotOfferManagment">
+
+                        <span class="title color"> {{'HotOffer'|translate}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a data-ui-sref="Master.HotAdsMangment">
+
+                        <span class="title color"> {{'HotAdds'|translate}}</span>
+                    </a>
+                </li>
+
+
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:" data-toggle="collapse" data-target="#PendingSection"><i
+                    class="fa fa-desktop"></i> {{'Followupandappropriations'|translate}} <span class="arrow"></span></a>
+            <ul id="PendingSection" class="nav collapse " aria-expanded="true">
+                <li>
+                    <a data-ui-sref="Master.ProductState">
+
+                        <span class="title color"> {{'ProductState'|translate}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a data-ui-sref="Master.NewOrder">
+
+                        <span class="title color"> {{'NewOrder'|translate}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a data-ui-sref="Master.SalesPendingReport">
+
+                        <span class="title color"> {{'SalesPendingReport'|translate}}</span>
+                    </a>
+                </li>
+                <!--<li>-->
+                    <!--<a data-ui-sref="Master.ClosedOrder">-->
+
+                        <!--<span class="title color"> {{'ClosedOrCaneclOrder'|translate}}</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <li>
+                    <a data-ui-sref="Master.RefusedOrder">
+
+                        <span class="title color"> {{'SuppliersCancelOrder'|translate}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a data-ui-sref="Master.AdminLateOrder">
+
+                        <span class="title color"> {{'LateOrder'|translate}}</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="javascript:" data-toggle="collapse" data-target="#TechnicalSection"><i
+                    class="fa fa-cogs"></i> {{'TechnicalSection'|translate}} <span class="arrow"></span></a>
+            <ul id="TechnicalSection" class="nav collapse " aria-expanded="true">
+                <li>
+                    <a data-ui-sref="Master.BrandManagment">
+                        <span class="title color"> {{'AddBrand' | translate }}</span>
+                    </a>
+                </li>
+                <li>
+                    <a data-ui-sref="Master.SizeManagment">
+
+                        <span class="title color"> {{'Size' | translate}}</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a data-ui-sref="Master.ProductPropoertyManagment">
+
+                        <span class="title color"> {{'ProductProperty'|translate}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a data-ui-sref="Master.CityManagment" id="">
+
+                        <span class="title color"> {{'CitySection' | translate}}</span>
+                    </a>
+                </li>   <li>
+                <a data-ui-sref="Master.ColorManagment" id="">
+
+                    <span class="title color"> {{'ColorSection' | translate}}</span>
+                </a>
+            </li>
+
+            </ul>
+        </li>
+
+
+        <li>
+            <a href="javascript:" data-toggle="collapse" data-target="#ReportandDeigram"><i
+                    class="fa fa-line-chart"></i> {{'ReportandDeigram'|translate}} <span class="arrow"></span></a>
+            <ul id="ReportandDeigram" class="nav collapse " aria-expanded="true">
+                <li>
+                    <a data-ui-sref="Master.DashBord">
+
+                        <span class="title color"> {{'DashBord'|translate}} </span>
+                    </a>
+                </li>
+                <li>
+                    <a data-ui-sref="Master.SalesReport" id="SalesReport">
+
+                        <span class="title color"> {{'SalesReport' | translate}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a data-ui-sref="Master.UsersReport" id="UsersReport">
+
+                        <span class="title color"> {{'UsersReport' | translate}}</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="javascript:" data-toggle="collapse" data-target="#Finincial"><i
+                    class="fa fa-columns"></i> {{'FinincialDepartment'|translate}} <span class="arrow"></span></a>
+            <ul id="Finincial" class="nav collapse " aria-expanded="true">
+                <li>
+                    <a data-ui-sref="Master.CashOrder">
+                        <span class="title color"> {{'CashOrder' | translate}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a data-ui-sref="Master.EpaymentOrder" id="">
+                        <span class="title color"> {{'EpaymentOrder' | translate}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a data-ui-sref="Master.Budgeting" id="">
+                        <span class="title color"> {{'Budgeting' | translate}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a data-ui-sref="Master.Claims" id="">
+                        <span class="title color"> {{'Claims' | translate}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a data-ui-sref="Master.Baddebt" id="">
+                        <span class="title color"> {{'Baddebt' | translate}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a data-ui-sref="Master.Ar5ssPresent">
+                        <span class="title color"> {{'SelectPresant' | translate}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a data-ui-sref="Master.Actualaccounts" id="">
+                        <span class="title color"> {{'Actualaccounts' | translate}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a data-ui-sref="Master.VAT">
+
+                        <span class="title color"> {{'VAT'|translate}}</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="javascript:" data-toggle="collapse" data-target="#Others"><i
+                    class="fa fa-columns"></i> {{'Others'|translate}} <span class="arrow"></span></a>
+            <ul id="Others" class="nav collapse " aria-expanded="true">
+
+                <li>
+                    <a data-ui-sref="Master.Complain" id="">
+                        <span class="title color"> {{'Complain&Suggest' | translate}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a data-ui-sref="Master.SupplierComplain" id="">
+                        <span class="title color"> {{'SupplierComplain' | translate}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a data-ui-sref="Master.AboutManagment">
+                        <span class="title color"> {{'AboutPolicy' | translate}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a data-ui-sref="Master.AdministrativeCirculars">
+                        <span class="title color"> {{'AdministrativeCirculars' | translate}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a data-ui-sref="Master.SellerPostion">
+                        <span class="title color"> {{'SellerPosition' | translate}}</span>
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+
+
+    </ul>
+    <!-- END SIDEBAR MENU -->
+</div>
+
+<script>
+    //    $('.collapse').on('shown.bs.collapse', function() {
+    //
+    //        $(this).parent().find(".arrow").removeClass("arrow").addClass("arrow open");
+    //    }).on('hidden.bs.collapse', function() {
+    //        $(this).parent().find(".arrow .open").removeClass("arrow open").addClass("arrow");
+    //    });
+
+</script>
